@@ -101,6 +101,7 @@ export async function getServerSideProps({ params }) {
     const getSinglePost = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/post/${params.slug}`);
     const post = await getSinglePost.json();
     // console.log(getSinglePost.status)
+    // handle detail not found to 404 page
     if (getSinglePost.status == 404) {
         return {
             notFound: true,
