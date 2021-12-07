@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 import { FaUser, FaRegCalendarAlt, FaArrowRight } from "react-icons/fa";
 
 export default function BlogDetail({ post }) {
-    console.log(post.author)
+    // console.log(post.author)
     return (
         <>
             <style jsx>
@@ -99,8 +99,13 @@ export async function getServerSideProps({ params }) {
     // console.log(params.slug)
     // Call external API from here directly using slug params
     const getSinglePost = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/post/${params.slug}`);
-    const post = await getSinglePost.json()
-
+    const post = await getSinglePost.json();
+    // console.log(getSinglePost.status)
+    if (getSinglePost.status == 404) {
+        return {
+            notFound: true,
+        }
+    } 
     return {
         props: { post },
     }
