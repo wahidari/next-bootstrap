@@ -96,9 +96,9 @@ export default function BlogDetail({ post }) {
 
 // This gets called on every request to this page
 export async function getServerSideProps({ params }) {
-    console.log(params.slug)
+    // console.log(params.slug)
     // Call external API from here directly using slug params
-    const getSinglePost = await fetch(`http://localhost:3000/api/post/${params.slug}`);
+    const getSinglePost = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/post/${params.slug}`);
     const post = await getSinglePost.json()
 
     return {

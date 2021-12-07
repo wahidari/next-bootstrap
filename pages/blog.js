@@ -104,7 +104,7 @@ export default function Blog({posts}) {
 
 // This gets called on every request to this page
 export async function getServerSideProps() {
-    const getAllPosts = await fetch("http://localhost:3000/api/post");
+    const getAllPosts = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/post`);
     const posts = await getAllPosts.json()
     return {
         props: { posts }, // will be passed to the page component as props
