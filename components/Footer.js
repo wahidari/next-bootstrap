@@ -8,6 +8,7 @@ export default function Footer() {
         <> 
             <style jsx>{`
                 .list-unstyled a {
+                    font-size: 15px;
                     text-decoration: none;
                     color: #495057;
                 }
@@ -91,7 +92,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="copyright pt-3 pb-1 text-center">
+                <div className="copyright pt-3 pb-1 text-center text-15">
                     <p>Copyright {" "}
                         <Link href="/">
                             <a>Next-Bootstrap</a>

@@ -1,10 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import NavBarTop from "../components/NavBarTop";
 import Footer from "../components/Footer";
 import Breadcrumb from "../components/Breadcrumb";
-import { FaUser, FaRegCalendarAlt, FaArrowRight } from "react-icons/fa";
+import PostCard from "../components/PostCard";
 
 const title = "Blog - Next Bootstrap";
 
@@ -16,28 +14,6 @@ export default function Blog({posts}) {
                 main {
                     margin-top: 60px;
                     min-height: 100vh;
-                }
-                .card-title {
-                    font-weight: 500;
-                }
-                .shadow-blog {
-                    box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
-                }
-                .blog-meta a .icon {
-                    font-size: 15px;
-                    color: #495057;
-                }
-                .blog-meta a {
-                    font-size: 14px;
-                    text-decoration: none;
-                    color: #495057;
-                }
-                .blog-meta a:hover {
-                    color: #0d6efd;
-                }
-                .card-text {
-                    color: #495057;
-                    font-size: 15px;
                 }
             `}
             </style>
@@ -59,38 +35,14 @@ export default function Blog({posts}) {
                     <div className="row g-4">
                         {posts.map(post =>
                             <div className="col-sm-6 col-md-6 col-lg-4" key={post.id}>
-                                <article className="card shadow-blog border-0 h-100">
-                                    <Image 
-                                        alt="Image"
-                                        src={post.image} 
-                                        width="350"
-                                        height="250"
-                                        className="card-img-top img-fluid" 
-                                     />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{post.title}</h5>
-                                        <div className="d-flex blog-meta py-2">
-                                            <Link href="#">
-                                                <a className="me-3">
-                                                    <i className="me-2 icon"><FaUser/></i>
-                                                    {post.author}
-                                                </a>
-                                            </Link>
-                                            <Link href="#">
-                                                <a>
-                                                    <i className="me-2 icon"><FaRegCalendarAlt/></i>
-                                                    {post.date}
-                                                </a>
-                                            </Link>
-                                        </div>
-                                        <p className="card-text mt-2">{post.excerpt}</p>
-                                        <Link href={`/blog/${post.slug}`}>
-                                            <a className="text-decoration-none">Read More 
-                                                <i className="ms-2"><FaArrowRight/></i>
-                                            </a>
-                                        </Link>
-                                    </div>
-                                </article>
+                                <PostCard 
+                                    id={post.id} 
+                                    image={post.image} 
+                                    title={post.title} 
+                                    slug={post.slug} 
+                                    author={post.author} 
+                                    date={post.date} 
+                                    excerpt={post.excerpt} />
                             </div>
                         )}
                     </div>
@@ -100,13 +52,13 @@ export default function Blog({posts}) {
             <Footer />
         </>
     );
-}
+};
 
 // This gets called on every request to this page
 export async function getServerSideProps() {
     const getAllPosts = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/post`);
-    const posts = await getAllPosts.json()
+    const posts = await getAllPosts.json();
     return {
         props: { posts }, // will be passed to the page component as props
-    }
-}
+    };
+};

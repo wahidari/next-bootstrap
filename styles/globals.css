@@ -22,12 +22,20 @@ a {
   .carousel-item img {
     height: 350px !important;
   }
+  .agenda img {
+    width: 550px !important;
+    height: 200px !important;
+  }
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .carousel-item img {
     height: 400px !important;
+  }
+  .agenda img {
+    width: 350px !important;
+    height: 180px !important;
   }
 }
 
@@ -36,4 +44,20 @@ a {
   .carousel-item img {
     height: 450px !important;
   }
+  .agenda img {
+    width: 250px !important;
+    height: 170px !important;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .agenda img {
+    width: 250px !important;
+    height: 175px !important;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
 }

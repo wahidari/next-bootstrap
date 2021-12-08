@@ -1,24 +1,26 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from "next/link"
-import NavBarTop from '../components/NavBarTop'
-import Carousel from '../components/Carousel'
-import Footer from '../components/Footer'
-import { FaArrowRight } from "react-icons/fa"
+import Head from 'next/head';
+import Link from "next/link";
+import NavBarTop from '../components/NavBarTop';
+import Carousel from '../components/Carousel';
+import Footer from '../components/Footer';
+import { FaArrowRight } from "react-icons/fa";
+import PostCard from "../components/PostCard";
+import AgendaCard from '../components/AgendaCard';
 
 const title = "Home - Next Bootstrap"
 
-export default function Home({posts}) {
+export default function Home({posts, agendas}) {
 
     // Take only 3 post as featured post 
-    const featuredPost = posts.slice(0, 3)
+    const featuredPost = posts.slice(0, 3);
+    const featuredAgenda = agendas.slice(0, 2);
 
     return (
         <>
             <style jsx>
                 {`
                 main {
-                    margin-top: 60px;
+                    margin-top: 58px;
                     min-height: 100vh;
                 }
                 .card-title {
@@ -42,9 +44,9 @@ export default function Home({posts}) {
 
             <NavBarTop />
 
-            <Carousel />
-
             <main>
+                <Carousel />
+
                 <div className="container my-5">
                     <div className="d-flex align-items-center justify-content-between mb-4">
                         <h3 className="mb-0">Blog</h3>
@@ -57,40 +59,59 @@ export default function Home({posts}) {
                     <div className="row g-4">
                         {featuredPost.map(post =>
                             <div className="col-sm-6 col-md-6 col-lg-4" key={post.id}>
-                                <article className="card shadow-blog border-0 h-100">
-                                    <Image
-                                        alt="Image"
-                                        src={post.image}
-                                        width="350"
-                                        height="250"
-                                        className="card-img-top img-fluid"
-                                    />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{post.title}</h5>
-                                        <p className="card-text mt-2">{post.excerpt}</p>
-                                        <Link href={`/blog/${post.slug}`}>
-                                            <a className="text-decoration-none">Read More
-                                            </a>
-                                        </Link>
-                                    </div>
-                                </article>
+                                <PostCard
+                                    id={post.id}
+                                    image={post.image}
+                                    title={post.title}
+                                    slug={post.slug}
+                                    author={post.author}
+                                    date={post.date}
+                                    excerpt={post.excerpt} />
                             </div>
                         )}
                     </div>
                 </div>
+
+                <div className="container my-5 pt-5">
+                    <div className="d-flex align-items-center justify-content-between mb-4">
+                        <h3 className="mb-0">Agenda</h3>
+                        <Link href="/agenda">
+                            <a className="text-decoration-none">All Agenda
+                                <i className="ms-2"><FaArrowRight /></i>
+                            </a>
+                        </Link>
+                    </div>
+                    <div className="row g-4">
+                        {featuredAgenda.map(agenda =>
+                            <div className="col-lg-6" key={agenda.id}>
+                                <AgendaCard
+                                    id={agenda.id}
+                                    slug={agenda.slug}
+                                    image={agenda.image}
+                                    title={agenda.title}
+                                    location={agenda.location}
+                                    date={agenda.date}
+                                    time={agenda.time} />
+                            </div>
+                        )}
+                    </div>
+                </div>
+
             </main>
 
             <Footer />
         </>
-    )
-}
+    );
+};
 
 // This gets called on every request to this page
 export async function getServerSideProps() {
     const getAllPosts = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/post`);
-    const posts = await getAllPosts.json()
+    const posts = await getAllPosts.json();
+    const getAllAgenda = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/agenda`);
+    const agendas = await getAllAgenda.json();
     return {  
         // will be passed to the page component as props
-        props: { posts }, 
-    }
-}
+        props: { posts, agendas }, 
+    };
+};

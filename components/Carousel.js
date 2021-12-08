@@ -1,5 +1,4 @@
 import Image from "next/image"
-import carouselImgA from "../public/carousel.jpeg";
 
 export default function Carousel() {
 
@@ -25,9 +24,9 @@ export default function Carousel() {
                     <div className="carousel-item active">
                         <Image
                             alt="Carousel"
-                            src="https://cdn.pixabay.com/photo/2015/03/28/09/45/surabaya-695665_960_720.jpg"
-                            width="1500"
-                            height="750"
+                            src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
+                            width="1400"
+                            height="700"
                             className="d-block w-100"
                         />
                         <div className="carousel-overlay"></div>
@@ -39,9 +38,9 @@ export default function Carousel() {
                     <div className="carousel-item">
                         <Image
                             alt="Carousel"
-                            src={carouselImgA}
-                            width="1500"
-                            height="750"
+                            src="https://cdn.pixabay.com/photo/2021/12/05/10/28/nature-6847175_960_720.jpg"
+                            width="1400"
+                            height="700"
                             className="d-block w-100"
                         />
                         <div className="carousel-overlay"></div>
