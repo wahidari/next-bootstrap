@@ -39,7 +39,7 @@ export default function PostCard({ id, image, title, slug, author, date, excerpt
                     src={image}
                     width="350"
                     height="200"
-                    className="img-fluid"
+                    className="img-fluid rounded"
                 />
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
