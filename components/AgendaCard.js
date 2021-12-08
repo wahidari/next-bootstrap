@@ -36,7 +36,7 @@ export default function AgendaCard({ id, slug, image, title, location, date, tim
                             alt="Agenda Image"
                             src={image}
                             width="200"
-                            height="190"
+                            height="160"
                             className="img-fluid rounded"
                         />
                     </div>

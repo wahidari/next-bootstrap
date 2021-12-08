@@ -35,7 +35,7 @@ a {
   }
   .agenda img {
     width: 350px !important;
-    height: 180px !important;
+    height: 150px !important;
   }
 }
 
@@ -54,7 +54,7 @@ a {
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .agenda img {
     width: 250px !important;
-    height: 175px !important;
+    height: 150px !important;
   }
 }
 

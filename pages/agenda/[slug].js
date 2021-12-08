@@ -3,9 +3,16 @@ import Image from "next/image";
 import NavBarTop from "../../components/NavBarTop";
 import Footer from "../../components/Footer";
 import { FaRegCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
+import PostList from "../../components/PostList";
+import AgendaList from "../../components/AgendaList";
 
-export default function Agendaetail({ agenda }) {
+export default function Agendaetail({ agenda, randomPosts, randomAgendas}) {
     // console.log(post.author)
+    // Get 3 post
+    const someRandomPosts = randomPosts.slice(0, 3);
+    // Get 3 agenda
+    const someRandomAgendas = randomAgendas.slice(0, 2);
+
     return (
         <>
             <style jsx>
@@ -49,8 +56,9 @@ export default function Agendaetail({ agenda }) {
 
             <main>
                 <div className="container py-5">
-                    <div className="row g-4">
-                        <div className="col-md-8">
+                    <div className="row g-5">
+                        {/* Start Main Content */}
+                        <div className="col-lg-8">
                             <div className="card shadow-blog border-0">
                                 <Image
                                     alt="Image"
@@ -75,11 +83,40 @@ export default function Agendaetail({ agenda }) {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-4 px-4">
-                            {/* <div className="card shadow-sm">
-                                
-                            </div> */}
+                        {/* End Main Content */}
+
+                        {/* Start Right Content */}
+                        <div className="col-lg-4">
+                            <div className="card shadow-blog border-0 px-3 py-2">
+                                <h5 className="mb-3">Random Posts</h5>
+                                {someRandomPosts.map(item =>
+                                    <div key={item.id}>
+                                        <PostList
+                                            id={item.id}
+                                            image={item.image}
+                                            title={item.title}
+                                            slug={item.slug}
+                                            date={item.date}
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                            <div className="card shadow-blog border-0 px-3 py-2 mt-4">
+                                <h5 className="mb-3">Latest Agenda</h5>
+                                {someRandomAgendas.map(item =>
+                                    <div key={item.id}>
+                                        <AgendaList
+                                            id={item.id}
+                                            image={item.image}
+                                            title={item.title}
+                                            slug={item.slug}
+                                            date={item.date}
+                                        />
+                                    </div>
+                                )}
+                            </div>
                         </div>
+                        {/* End Right Content */}
                     </div>
                 </div>
             </main>
@@ -92,9 +129,15 @@ export default function Agendaetail({ agenda }) {
 // This gets called on every request to this page
 export async function getServerSideProps({ params }) {
     // console.log(params.slug)
-    // Call external API from here directly using slug params
+    // Call external API from here directly using slug params in route url
     const getSingleAgenda = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/agenda/${params.slug}`);
     const agenda = await getSingleAgenda.json();
+    // For random post
+    const getRandomPost = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/post`);
+    const randomPosts = await getRandomPost.json();
+    // For random agenda
+    const getRandomAgenda = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/agenda`);
+    const randomAgendas = await getRandomAgenda.json();
     // console.log(getSinglePost.status)
     // handle detail not found to 404 page
     if (getSingleAgenda.status == 404) {
@@ -103,6 +146,6 @@ export async function getServerSideProps({ params }) {
         };
     } 
     return {
-        props: { agenda },
+        props: { agenda, randomPosts, randomAgendas },
     };
 };

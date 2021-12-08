@@ -47,7 +47,7 @@ export default function Home({posts, agendas}) {
             <main>
                 <Carousel />
 
-                <div className="container my-5">
+                <div className="container my-5 py-4">
                     <div className="d-flex align-items-center justify-content-between mb-4">
                         <h3 className="mb-0">Blog</h3>
                         <Link href="/blog">
@@ -72,7 +72,7 @@ export default function Home({posts, agendas}) {
                     </div>
                 </div>
 
-                <div className="container my-5 pt-5">
+                <div className="container my-5 py-4">
                     <div className="d-flex align-items-center justify-content-between mb-4">
                         <h3 className="mb-0">Agenda</h3>
                         <Link href="/agenda">
