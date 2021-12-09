@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Breadcrumb from "../components/Breadcrumb";
 import PostCard from "../components/PostCard";
 
-const title = "Blog - Next Bootstrap";
+const title = "Blog";
 
 export default function Blog({posts}) {
     return (

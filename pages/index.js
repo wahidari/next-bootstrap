@@ -7,7 +7,7 @@ import { FaArrowRight } from "react-icons/fa";
 import PostCard from "../components/PostCard";
 import AgendaCard from '../components/AgendaCard';
 
-const title = "Home - Next Bootstrap"
+const title = "Home"
 
 export default function Home({posts, agendas}) {
 

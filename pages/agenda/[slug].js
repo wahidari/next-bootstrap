@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import NavBarTop from "../../components/NavBarTop";
 import Footer from "../../components/Footer";
 import { FaRegCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
@@ -101,6 +102,31 @@ export default function Agendaetail({ agenda, randomPosts, randomAgendas}) {
                                     </div>
                                 )}
                             </div>
+
+                            <div className="card shadow-blog border-0 px-3 py-2 mt-4">
+                                <h5 className="mb-3">Categories</h5>
+                                <ul className="list-group border-0">
+                                    <li className="list-group-item border-0 px-0 py-1 d-flex justify-content-between align-items-center">
+                                        <Link href="/blog/category/news">
+                                            <a className="text-decoration-none">News</a>
+                                        </Link>
+                                        <span className="badge bg-primary rounded-pill">7</span>
+                                    </li>
+                                    <li className="list-group-item border-0 px-0 py-1 d-flex justify-content-between align-items-center">
+                                        <Link href="/blog/category/health">
+                                            <a className="text-decoration-none">Health</a>
+                                        </Link>
+                                        <span className="badge bg-primary rounded-pill">5</span>
+                                    </li>
+                                    <li className="list-group-item border-0 px-0 py-1 d-flex justify-content-between align-items-center">
+                                        <Link href="/blog/category/random">
+                                            <a className="text-decoration-none">Random</a>
+                                        </Link>
+                                        <span className="badge bg-primary rounded-pill">3</span>
+                                    </li>
+                                </ul>
+                            </div>
+
                             <div className="card shadow-blog border-0 px-3 py-2 mt-4">
                                 <h5 className="mb-3">Latest Agenda</h5>
                                 {someRandomAgendas.map(item =>

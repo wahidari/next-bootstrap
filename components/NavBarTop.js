@@ -49,6 +49,11 @@ export default function NavBarTop() {
                                     <a className="nav-link">Agenda</a>
                                 </ActiveLink>
                             </li>
+                            <li className="nav-item ms-0 ms-lg-2">
+                                <ActiveLink activeClassName="active" href="/chart" passHref>
+                                    <a className="nav-link">Chart</a>
+                                </ActiveLink>
+                            </li>
                             {/* <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Dropdown

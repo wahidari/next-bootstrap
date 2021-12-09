@@ -3,7 +3,7 @@ import { posts } from "./data"
 
 export default function singlePostHandler({ query: { slug } }, res) {
   // console.log(slug)
-  const filtered = posts.filter((p) => p.slug === slug)
+  const filtered = posts.filter((post) => post.slug === slug)
 
   // Post with slug exists
   if (filtered.length > 0) {

@@ -11,9 +11,9 @@ export default function BlogDetail({ post, randomPosts, randomAgendas }) {
     // console.log(post.author)
     // console.log(randomPosts)
     // Get 3 post
-    const someRandomPosts = randomPosts.slice(0,3);
+    const someRandomPosts = randomPosts.slice(0, 3);
     // Get 3 agenda
-    const someRandomAgendas = randomAgendas.slice(0,2);
+    const someRandomAgendas = randomAgendas.slice(0, 2);
 
     return (
         <>
@@ -56,6 +56,7 @@ export default function BlogDetail({ post, randomPosts, randomAgendas }) {
             <main>
                 <div className="container py-5">
                     <div className="row g-5">
+
                         {/* Start Main Content */}
                         <div className="col-lg-8">
                             <div className="card shadow-blog border-0">
@@ -90,7 +91,7 @@ export default function BlogDetail({ post, randomPosts, randomAgendas }) {
                                 <h5 className="mb-3">Random Posts</h5>
                                 {someRandomPosts.map(item =>
                                     <div key={item.id}>
-                                        <PostList 
+                                        <PostList
                                             id={item.id}
                                             image={item.image}
                                             title={item.title}
@@ -99,6 +100,30 @@ export default function BlogDetail({ post, randomPosts, randomAgendas }) {
                                         />
                                     </div>
                                 )}
+                            </div>
+
+                            <div className="card shadow-blog border-0 px-3 py-2 mt-4">
+                                <h5 className="mb-3">Categories</h5>
+                                <ul className="list-group border-0">
+                                    <li className="list-group-item border-0 px-0 py-1 d-flex justify-content-between align-items-center">
+                                        <Link href="/blog/category/news">
+                                            <a className="text-decoration-none">News</a>
+                                        </Link>
+                                        <span className="badge bg-primary rounded-pill">7</span>
+                                    </li>
+                                    <li className="list-group-item border-0 px-0 py-1 d-flex justify-content-between align-items-center">
+                                        <Link href="/blog/category/health">
+                                            <a className="text-decoration-none">Health</a>
+                                        </Link>
+                                        <span className="badge bg-primary rounded-pill">5</span>
+                                    </li>
+                                    <li className="list-group-item border-0 px-0 py-1 d-flex justify-content-between align-items-center">
+                                        <Link href="/blog/category/random">
+                                            <a className="text-decoration-none">Random</a>
+                                        </Link>
+                                        <span className="badge bg-primary rounded-pill">3</span>
+                                    </li>
+                                </ul>
                             </div>
 
                             <div className="card shadow-blog border-0 px-3 py-2 mt-4">
@@ -147,6 +172,6 @@ export async function getServerSideProps({ params }) {
         };
     }
     return {
-        props: { post, randomPosts, randomAgendas},
+        props: { post, randomPosts, randomAgendas },
     };
 };

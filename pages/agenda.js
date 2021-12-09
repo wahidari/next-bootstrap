@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Breadcrumb from "../components/Breadcrumb";
 import AgendaCard from "../components/AgendaCard";
 
-const title = "Agenda - Next Bootstrap";
+const title = "Agenda";
 
 export default function Blog({agendas}) {
     return (

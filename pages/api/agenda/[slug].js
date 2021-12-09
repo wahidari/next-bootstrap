@@ -3,9 +3,9 @@ import { agendas } from "./data"
 
 export default function singlePostHandler({ query: { slug } }, res) {
   // console.log(slug)
-  const filtered = agendas.filter((p) => p.slug === slug)
+  const filtered = agendas.filter((agenda) => agenda.slug === slug)
 
-  // Post with slug exists
+  // Agenda with slug exists
   if (filtered.length > 0) {
     res.status(200).json(filtered[0])
   } else {
