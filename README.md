@@ -21,6 +21,8 @@ https://next-bootstrapp.vercel.app/api/gender
 https://next-bootstrapp.vercel.app/api/education
 ### Religion
 https://next-bootstrapp.vercel.app/api/religion
+### Data by Area
+https://next-bootstrapp.vercel.app/api/area
 
 
 ## Installation
