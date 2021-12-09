@@ -134,11 +134,6 @@ function populateData(param) {
         labels: labels,
         datasets: [
             {
-                label: "Total Jiwa",
-                backgroundColor: "#36b9cc",
-                data: total,
-            },
-            {
                 label: "Laki-Laki",
                 backgroundColor: "#1cc88a",
                 data: male,
@@ -147,6 +142,11 @@ function populateData(param) {
                 label: "Perempuan",
                 backgroundColor: "#fd7e14",
                 data: female,
+            },
+            {
+                label: "Total Jiwa",
+                backgroundColor: "#36b9cc",
+                data: total,
             },
         ],
     };
