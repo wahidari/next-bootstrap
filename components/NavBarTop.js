@@ -35,36 +35,37 @@ export default function NavBarTop() {
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item ms-0 ms-lg-2 mt-3 mt-md-0">
-                                <ActiveLink activeClassName="active" href="/" passHref>
+                                <ActiveLink activeClassName="active" href="/">
                                     <a className="nav-link">Home</a>
                                 </ActiveLink>
                             </li>
                             <li className="nav-item ms-0 ms-lg-2">
-                                <ActiveLink activeClassName="active" href="/blog" passHref>
+                                <ActiveLink activeClassName="active" href="/blog">
                                     <a className="nav-link">Blog</a>
                                 </ActiveLink>
                             </li>
                             <li className="nav-item ms-0 ms-lg-2">
-                                <ActiveLink activeClassName="active" href="/agenda" passHref>
+                                <ActiveLink activeClassName="active" href="/agenda">
                                     <a className="nav-link">Agenda</a>
                                 </ActiveLink>
                             </li>
-                            <li className="nav-item ms-0 ms-lg-2">
-                                <ActiveLink activeClassName="active" href="/chart" passHref>
-                                    <a className="nav-link">Chart</a>
-                                </ActiveLink>
-                            </li>
-                            {/* <li className="nav-item dropdown">
+                            <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
+                                    Chart
                                 </a>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><hr className="dropdown-divider"></hr></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                    <li>
+                                        <ActiveLink activeClassName="active" href="/chart">
+                                            <a className="nav-link ms-3 ms-md-2">Data</a>
+                                        </ActiveLink>
+                                    </li>
+                                    <li>
+                                        <ActiveLink activeClassName="active" href="/area">
+                                            <a className="nav-link ms-3 ms-md-2">Area</a>
+                                        </ActiveLink>
+                                    </li>
                                 </ul>
-                            </li> */}
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ ChartJS.register( ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarEl
 const title = "Chart";
 const colors = ["#36b9cc", "#1cc88a", "#6f42c1", "#e74a3b", "#fd7e14", "#f6c23e"];
 
-export default function chart({ gender, education, religion }) {
+export default function Chart({ gender, education, religion }) {
 
     const dataGender = populateData(gender);
     const totalDataGender = getTotalData(gender);
@@ -86,7 +86,7 @@ export default function chart({ gender, education, religion }) {
                                         
                                         <tr>
                                             <td colSpan="2" className="text-center fw-600">Jumlah</td>
-                                            <td>{totalDataGender}</td>
+                                            <td className="fw-600">{totalDataGender}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -128,7 +128,7 @@ export default function chart({ gender, education, religion }) {
 
                                         <tr>
                                             <td colSpan="2" className="text-center fw-600">Jumlah</td>
-                                            <td>{totalDataEducation}</td>
+                                            <td className="fw-600">{totalDataEducation}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -170,7 +170,7 @@ export default function chart({ gender, education, religion }) {
 
                                         <tr>
                                             <td colSpan="2" className="text-center fw-600">Jumlah</td>
-                                            <td>{totalDataReligion}</td>
+                                            <td className="fw-600">{totalDataReligion}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -219,15 +219,17 @@ function populateData(param) {
     return (data);
 }
 
-// Count row value for total 
+// Count each row value for total row
 function getTotalData(param) {
     const totals = [];
     param.map(item =>
         totals.push(item.total)
     );
+
     let total = 0;
     for (let index = 0; index < totals.length; index++) {
         total += parseInt(totals[index])
     }
+
     return (total);
 }
