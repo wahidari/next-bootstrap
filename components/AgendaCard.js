@@ -16,7 +16,8 @@ export default function AgendaCard({ id, slug, image, title, location, date, tim
                     color: #0d6efd;
                     transition: color 0.7s ease-out;
                 }
-                .card-title h5 {
+                .stretched-link {
+                    color: #212529;
                     text-decoration: none;
                     font-weight: 500;
                 }
@@ -42,9 +43,8 @@ export default function AgendaCard({ id, slug, image, title, location, date, tim
                     </div>
                     <div className="col-sm-8">
                         <div className="card-body">
-                            <h5 className="card-title mb-3">{title}</h5>
                             <Link href={`/agenda/${slug}`}>
-                                <a className="stretched-link"></a>
+                                <a className="stretched-link"><h5 className="card-title mb-3">{title}</h5></a>
                             </Link>
                             <hr />
                             <div className="d-flex mb-3">

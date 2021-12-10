@@ -67,10 +67,10 @@ export default function NavBarTop() {
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Galeri
                                 </a>
-                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown2">
                                     <li>
                                         <ActiveLink activeClassName="active" href="/foto">
                                             <a className="nav-link ms-3 ms-md-2">Foto</a>

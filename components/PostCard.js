@@ -16,7 +16,8 @@ export default function PostCard({ id, image, title, slug, author, date, excerpt
                     color: #0d6efd;
                     transition: color 0.7s ease-out;
                 }
-                .card-title h5 {
+                .stretched-link {
+                    color: #212529;
                     text-decoration: none;
                     font-weight: 500;
                 }
@@ -42,9 +43,9 @@ export default function PostCard({ id, image, title, slug, author, date, excerpt
                     className="img-fluid rounded"
                 />
                 <div className="card-body">
-                    <h5 className="card-title">{title}</h5>
+                    
                     <Link href={`/blog/${slug}`}>
-                        <a className="stretched-link"></a>
+                        <a className="stretched-link"><h5 className="card-title">{title}</h5></a>
                     </Link>
                     <div className="d-flex blog-meta py-2">
                         <div className="me-3">
