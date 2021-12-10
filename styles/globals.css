@@ -85,3 +85,7 @@ a {
 	-webkit-animation: zoom 20s;
 	animation: zoom 20s;
 }
+
+.swiper-custom {
+	padding: 14px !important;
+}

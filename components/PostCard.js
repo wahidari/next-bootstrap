@@ -9,7 +9,7 @@ export default function PostCard({ id, image, title, slug, author, date, excerpt
             <style jsx>{`
                 .card-link:hover {
                     transition: box-shadow 0.5s ease; /* Animation */
-                    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+                    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px !important;
                     transition: all 0.7s ease-out;
                 }
                 .card-link:hover .card-title {

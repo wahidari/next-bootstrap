@@ -10,10 +10,19 @@ import VideoCard from '../components/VideoCard';
 import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 import React, { useState, useCallback } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay, Pagination } from 'swiper';
+import 'swiper/css';
+import "swiper/css/pagination"
+import "swiper/css/autoplay"
+
+// install Swiper modules
+SwiperCore.use([Autoplay, Pagination]);
 
 const title = "Home"
 
-export default function Home({posts, agendas, videos, photos}) {
+export default function Home({ posts, agendas, videos, photos }) {
 
     // Take only 3 item as featured
     const featuredPost = posts.slice(0, 3);
@@ -56,6 +65,67 @@ export default function Home({posts, agendas, videos, photos}) {
 
             <main>
                 <CarouselHome />
+
+                <div className="container my-5 py-4">
+                    <div className="d-flex align-items-center justify-content-between mb-4">
+                        <h3 className="mb-0">Blog</h3>
+                        <Link href="/blog">
+                            <a className="text-decoration-none">All Blog
+                                <i className="ms-2"><FaArrowRight /></i>
+                            </a>
+                        </Link>
+                    </div>
+                    <div className="row g-4">
+                        <Swiper className="swiper-custom"
+                            spaceBetween={24}
+                            slidesPerView={3}
+                            breakpoints={{
+                                "320": {
+                                    "slidesPerView": 1,
+                                    "spaceBetween": 24
+                                },
+                                "480": {
+                                    "slidesPerView": 1,
+                                    "spaceBetween": 24
+                                },
+                                "640": {
+                                    "slidesPerView": 2,
+                                    "spaceBetween": 24
+                                },
+                                "768": {
+                                    "slidesPerView": 2,
+                                    "spaceBetween": 24
+                                },
+                                "1024": {
+                                    "slidesPerView": 3,
+                                    "spaceBetween": 24
+                                }
+                            }}
+                            autoplay={{
+                                "delay": 3000,
+                                "disableOnInteraction": false
+                            }} 
+                            // pagination={{
+                            //     "clickable": true
+                            // }} 
+                            navigation={false}
+                            loop={true}
+                        >
+                            {posts.map(post =>
+                                <SwiperSlide key={post.id}>
+                                    <PostCard
+                                        id={post.id}
+                                        image={post.image}
+                                        title={post.title}
+                                        slug={post.slug}
+                                        author={post.author}
+                                        date={post.date}
+                                        excerpt={post.excerpt} />
+                                </SwiperSlide>
+                            )}
+                        </Swiper>
+                    </div>
+                </div>
 
                 <div className="container my-5 py-4">
                     <div className="d-flex align-items-center justify-content-between mb-4">
@@ -170,8 +240,8 @@ export async function getServerSideProps() {
     const videos = await getAllVideo.json();
     const getAllPhotos = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/photo`);
     const photos = await getAllPhotos.json();
-    return {  
+    return {
         // will be passed to the page component as props
-        props: { posts, agendas, videos, photos }, 
+        props: { posts, agendas, videos, photos },
     };
 };
