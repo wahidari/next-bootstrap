@@ -66,6 +66,23 @@ export default function NavBarTop() {
                                     </li>
                                 </ul>
                             </li>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Galeri
+                                </a>
+                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <ActiveLink activeClassName="active" href="/foto">
+                                            <a className="nav-link ms-3 ms-md-2">Foto</a>
+                                        </ActiveLink>
+                                    </li>
+                                    <li>
+                                        <ActiveLink activeClassName="active" href="/video">
+                                            <a className="nav-link ms-3 ms-md-2">Video</a>
+                                        </ActiveLink>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
