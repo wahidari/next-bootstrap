@@ -12,13 +12,15 @@ import Carousel, { Modal, ModalGateway } from 'react-images';
 import React, { useState, useCallback } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Autoplay, Pagination } from 'swiper';
+import SwiperCore, { Autoplay } from 'swiper';
+// import SwiperCore, { Autoplay, Pagination } from 'swiper';
 import 'swiper/css';
-import "swiper/css/pagination"
+// import "swiper/css/pagination"
 import "swiper/css/autoplay"
 
 // install Swiper modules
-SwiperCore.use([Autoplay, Pagination]);
+SwiperCore.use([Autoplay]);
+// SwiperCore.use([Autoplay, Pagination]);
 
 const title = "Home"
 
@@ -108,7 +110,7 @@ export default function Home({ posts, agendas, videos, photos }) {
                             // pagination={{
                             //     "clickable": true
                             // }} 
-                            navigation={false}
+                            // navigation={false}
                             loop={true}
                         >
                             {posts.map(post =>
