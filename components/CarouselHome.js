@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-export default function Carousel() {
+export default function CarouselHome() {
 
     return (
         <>
@@ -10,7 +10,7 @@ export default function Carousel() {
                     top: 0;
                     left: 0;
                     width: 100%;
-                    height: 99%;
+                    height: 98%;
                     background-color: rgba(0, 0, 0, 0.4);
                 }
             `}</style>
@@ -27,7 +27,7 @@ export default function Carousel() {
                             src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"
                             width="1400"
                             height="700"
-                            className="d-block w-100"
+                            className="d-block w-100 carousel-zoom"
                         />
                         <div className="carousel-overlay"></div>
                         <div className="carousel-caption d-none d-md-block">
@@ -41,7 +41,7 @@ export default function Carousel() {
                             src="https://cdn.pixabay.com/photo/2021/12/05/10/28/nature-6847175_960_720.jpg"
                             width="1400"
                             height="700"
-                            className="d-block w-100"
+                            className="d-block w-100 carousel-zoom"
                         />
                         <div className="carousel-overlay"></div>
                         <div className="carousel-caption d-none d-md-block">

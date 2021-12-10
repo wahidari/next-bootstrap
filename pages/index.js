@@ -1,19 +1,39 @@
 import Head from 'next/head';
 import Link from "next/link";
 import NavBarTop from '../components/NavBarTop';
-import Carousel from '../components/Carousel';
+import CarouselHome from '../components/CarouselHome';
 import Footer from '../components/Footer';
 import { FaArrowRight } from "react-icons/fa";
 import PostCard from "../components/PostCard";
 import AgendaCard from '../components/AgendaCard';
+import VideoCard from '../components/VideoCard';
+import Gallery from 'react-photo-gallery';
+import Carousel, { Modal, ModalGateway } from 'react-images';
+import React, { useState, useCallback } from "react";
 
 const title = "Home"
 
-export default function Home({posts, agendas}) {
+export default function Home({posts, agendas, videos, photos}) {
 
-    // Take only 3 post as featured post 
+    // Take only 3 item as featured
     const featuredPost = posts.slice(0, 3);
     const featuredAgenda = agendas.slice(0, 2);
+    const featuredVideo = videos.slice(0, 2);
+    const featuredPhotos = photos.slice(0, 3);
+
+    // For Image Lightbox & Carousel 
+    const [currentImage, setCurrentImage] = useState(0);
+    const [viewerIsOpen, setViewerIsOpen] = useState(false);
+
+    const openLightbox = useCallback((event, { photo, index }) => {
+        setCurrentImage(index);
+        setViewerIsOpen(true);
+    }, []);
+
+    const closeLightbox = () => {
+        setCurrentImage(0);
+        setViewerIsOpen(false);
+    };
 
     return (
         <>
@@ -22,16 +42,6 @@ export default function Home({posts, agendas}) {
                 main {
                     margin-top: 58px;
                     min-height: 100vh;
-                }
-                .card-title {
-                    font-weight: 500;
-                }
-                .shadow-blog {
-                    box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
-                }
-                .card-text {
-                    color: #495057;
-                    font-size: 15px;
                 }
             `}
             </style>
@@ -45,7 +55,7 @@ export default function Home({posts, agendas}) {
             <NavBarTop />
 
             <main>
-                <Carousel />
+                <CarouselHome />
 
                 <div className="container my-5 py-4">
                     <div className="d-flex align-items-center justify-content-between mb-4">
@@ -97,6 +107,52 @@ export default function Home({posts, agendas}) {
                     </div>
                 </div>
 
+                <div className="container my-5 py-4">
+                    <div className="d-flex align-items-center justify-content-between mb-4">
+                        <h3 className="mb-0">Video</h3>
+                        <Link href="/video">
+                            <a className="text-decoration-none">All Video
+                                <i className="ms-2"><FaArrowRight /></i>
+                            </a>
+                        </Link>
+                    </div>
+                    <div className="row g-4">
+                        {featuredVideo.map(video =>
+                            <div className="col-md-6" key={video.title}>
+                                <VideoCard title={video.title} src={video.src} />
+                            </div>
+                        )}
+                    </div>
+                </div>
+
+                <div className="container my-5 py-4">
+                    <div className="d-flex align-items-center justify-content-between mb-4">
+                        <h3 className="mb-0">Foto</h3>
+                        <Link href="/foto">
+                            <a className="text-decoration-none">All Foto
+                                <i className="ms-2"><FaArrowRight /></i>
+                            </a>
+                        </Link>
+                    </div>
+                    <div className="row g-4">
+                        <Gallery photos={featuredPhotos} onClick={openLightbox} />
+                        <ModalGateway>
+                            {viewerIsOpen ? (
+                                <Modal onClose={closeLightbox}>
+                                    <Carousel
+                                        currentIndex={currentImage}
+                                        views={featuredPhotos.map(x => ({
+                                            ...x,
+                                            srcset: x.srcSet,
+                                            caption: x.title
+                                        }))}
+                                    />
+                                </Modal>
+                            ) : null}
+                        </ModalGateway>
+                    </div>
+                </div>
+
             </main>
 
             <Footer />
@@ -110,8 +166,12 @@ export async function getServerSideProps() {
     const posts = await getAllPosts.json();
     const getAllAgenda = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/agenda`);
     const agendas = await getAllAgenda.json();
+    const getAllVideo = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/video`);
+    const videos = await getAllVideo.json();
+    const getAllPhotos = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/photo`);
+    const photos = await getAllPhotos.json();
     return {  
         // will be passed to the page component as props
-        props: { posts, agendas }, 
+        props: { posts, agendas, videos, photos }, 
     };
 };
