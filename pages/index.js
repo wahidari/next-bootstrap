@@ -66,6 +66,7 @@ export default function Home({ posts, agendas, videos, photos }) {
             <NavBarTop />
 
             <main>
+                
                 <CarouselHome />
 
                 <div className="container my-5 py-4">
