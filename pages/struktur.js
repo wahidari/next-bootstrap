@@ -40,7 +40,7 @@ export default function Blog({ posts }) {
                         </div>
                         <div className="col-sm-9">
                             <div className="card bg-white shadow-sm rounded border-0 px-3 py-3">
-                                <h4>Fahrur Rozi, S.H.</h4>
+                                <h4>Kepala Desa</h4>
                                 <div className="table-responsive mt-3">
                                     <table className="table table-bordered table-hover">
                                         <tbody>
@@ -50,7 +50,7 @@ export default function Blog({ posts }) {
                                             </tr>
                                             <tr>
                                                 <td>Alamat</td>
-                                                <td>Alang Alang</td>
+                                                <td>Desa</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -78,7 +78,7 @@ export default function Blog({ posts }) {
                                                     </tr>
                                                     <tr>
                                                         <td>Alamat</td>
-                                                        <td>Alang Alang</td>
+                                                        <td>Desa</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -106,7 +106,7 @@ export default function Blog({ posts }) {
                                                     </tr>
                                                     <tr>
                                                         <td>Alamat</td>
-                                                        <td>Alang Alang</td>
+                                                        <td>Desa</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
