@@ -24,6 +24,23 @@ export default function Galeri({ photos }) {
         setViewerIsOpen(false);
     };
 
+    const lightboxStyles = {
+        header: (base, state) => {
+            const opacity= 1;
+            const transform = "translateY(10px)"
+            return { ...base, opacity, transform};
+        },
+        navigation: (base, state) => {
+            const opacity= 1;
+            return { ...base, opacity};
+        },
+        footer: (base, state) => {
+            const opacity= 1;
+            const transform = "translateY(-10px)"
+            return { ...base, opacity, transform};
+        }
+    }
+
     return (
         <>
             <style jsx>
@@ -54,7 +71,9 @@ export default function Galeri({ photos }) {
                     <ModalGateway>
                         {viewerIsOpen ? (
                             <Modal onClose={closeLightbox}>
-                                <Carousel
+                                <Carousel 
+                                    styles={lightboxStyles}
+                                    showNavigationOnTouchDevice={true}
                                     currentIndex={currentImage}
                                     views={photos.map(x => ({
                                         ...x,

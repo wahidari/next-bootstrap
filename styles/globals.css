@@ -90,3 +90,12 @@ a {
 .swiper-custom {
 	padding: 14px !important;
 }
+
+/* Progress Bar on Top of Page  */
+#nprogress .bar {
+  background: #0d6efd !important;
+}
+
+#nprogress .spinner-icon {
+	display: none;
+}

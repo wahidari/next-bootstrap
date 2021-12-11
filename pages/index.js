@@ -16,13 +16,13 @@ import SwiperCore, { Autoplay } from 'swiper';
 // import SwiperCore, { Autoplay, Pagination } from 'swiper';
 import 'swiper/css';
 // import "swiper/css/pagination"
-import "swiper/css/autoplay"
+import "swiper/css/autoplay";
 
 // install Swiper modules
 SwiperCore.use([Autoplay]);
 // SwiperCore.use([Autoplay, Pagination]);
 
-const title = "Home"
+const title = "Home";
 
 export default function Home({ posts, agendas, videos, photos }) {
 
@@ -46,6 +46,23 @@ export default function Home({ posts, agendas, videos, photos }) {
         setViewerIsOpen(false);
     };
 
+    const lightboxStyles = {
+        header: (base, state) => {
+            const opacity = 1;
+            const transform = "translateY(10px)"
+            return { ...base, opacity, transform };
+        },
+        navigation: (base, state) => {
+            const opacity = 1;
+            return { ...base, opacity };
+        },
+        footer: (base, state) => {
+            const opacity = 1;
+            const transform = "translateY(-10px)"
+            return { ...base, opacity, transform };
+        }
+    };
+
     return (
         <>
             <style jsx>
@@ -66,7 +83,7 @@ export default function Home({ posts, agendas, videos, photos }) {
             <NavBarTop />
 
             <main>
-                
+
                 <CarouselHome />
 
                 <div className="container my-5 py-4">
@@ -105,9 +122,9 @@ export default function Home({ posts, agendas, videos, photos }) {
                                 }
                             }}
                             autoplay={{
-                                "delay": 3000,
+                                "delay": 4000,
                                 "disableOnInteraction": false
-                            }} 
+                            }}
                             // pagination={{
                             //     "clickable": true
                             // }} 
@@ -213,6 +230,8 @@ export default function Home({ posts, agendas, videos, photos }) {
                             {viewerIsOpen ? (
                                 <Modal onClose={closeLightbox}>
                                     <Carousel
+                                        styles={lightboxStyles}
+                                        showNavigationOnTouchDevice={true}
                                         currentIndex={currentImage}
                                         views={featuredPhotos.map(x => ({
                                             ...x,
