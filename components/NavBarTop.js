@@ -51,9 +51,21 @@ export default function NavBarTop() {
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Chart
+                                    Profil
                                 </a>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <ActiveLink activeClassName="active" href="/sejarah">
+                                            <a className="nav-link ms-3 ms-md-2">Sejarah</a>
+                                        </ActiveLink>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Chart
+                                </a>
+                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown1">
                                     <li>
                                         <ActiveLink activeClassName="active" href="/chart">
                                             <a className="nav-link ms-3 ms-md-2">Data</a>
