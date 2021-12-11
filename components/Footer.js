@@ -1,11 +1,12 @@
-import Link from "next/link"
-import Image from "next/image"
-import imgLogo from "../public/logo.png"
+import Link from "next/link";
+import Image from "next/image";
+import imgLogo from "../public/logo.png";
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
 
     return (
-        <> 
+        <>
             <style jsx>{`
                 .list-unstyled a {
                     font-size: 15px;
@@ -29,6 +30,9 @@ export default function Footer() {
                 .text-15 {
                     font-size: 15px;
                 }
+                .text-18 {
+                    font-size: 18px;
+                }
             `}</style>
 
             <footer className="pt-4 mt-5 bg-light">
@@ -37,7 +41,7 @@ export default function Footer() {
                         <div className="col-lg-3 mb-3">
                             <Link href="/">
                                 <a className="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                                    <Image 
+                                    <Image
                                         alt=""
                                         src={imgLogo}
                                         width="30"
@@ -92,13 +96,31 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="copyright pt-3 pb-1 text-center text-15">
-                    <p>Copyright {" "}
-                        <Link href="/">
-                            <a>Next-Bootstrap</a>
-                        </Link>
-                        {" "} 2021.
-                    </p>
+                <div className="copyright pt-3 pb-3 pb-md-1 text-center text-15">
+                    <div className="container d-md-flex">
+                        <div className="col-md-8 my-1 text-center text-md-start">
+                            <p>Copyright {" "}
+                                <Link href="/">
+                                    <a>Next-Bootstrap</a>
+                                </Link>
+                                {" "} 2021.
+                            </p>
+                        </div>
+                        <div className="col-md-4 my-1 text-center text-md-end ">
+                            <a href="#" className="text-white-80 mx-2 text-decoration-none text-18">
+                                <FaFacebook/>
+                            </a>
+                            <a href="#" className="text-white-80 mx-2 text-decoration-none text-18">
+                                <FaTwitter/>
+                            </a>
+                            <a href="#" className="text-white-80 mx-2 text-decoration-none text-18">
+                                <FaYoutube/>
+                            </a>
+                            <a href="#" className="text-white-80 mx-2 text-decoration-none text-18">
+                                <FaInstagram/>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </footer>
         </>
