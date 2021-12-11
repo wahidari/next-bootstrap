@@ -49,17 +49,28 @@ export default function Home({ posts, agendas, videos, photos }) {
     const lightboxStyles = {
         header: (base, state) => {
             const opacity = 1;
-            const transform = "translateY(10px)"
-            return { ...base, opacity, transform };
+            const transform = "translateY(10px)";
+            const top = "-10";
+            return { ...base, opacity, transform, top };
         },
         navigation: (base, state) => {
             const opacity = 1;
-            return { ...base, opacity };
+            const background = "rgba(0, 0, 0, 0.8)";
+            return { ...base, opacity, background };
+        },
+        navigationPrev: (base, state) => {
+            const background = "rgba(0, 0, 0, 0.5) !important";
+            return { ...base, background };
+        },
+        navigationNext: (base, state) => {
+            const background = "rgba(0, 0, 0, 0.5) !important";
+            return { ...base, background };
         },
         footer: (base, state) => {
             const opacity = 1;
-            const transform = "translateY(-10px)"
-            return { ...base, opacity, transform };
+            const transform = "translateY(-10px)";
+            const bottom = "-10";
+            return { ...base, opacity, transform, bottom };
         }
     };
 
