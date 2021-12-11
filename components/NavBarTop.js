@@ -59,6 +59,11 @@ export default function NavBarTop() {
                                             <a className="nav-link ms-3 ms-md-2">Sejarah</a>
                                         </ActiveLink>
                                     </li>
+                                    <li>
+                                        <ActiveLink activeClassName="active" href="/struktur">
+                                            <a className="nav-link ms-3 ms-md-2">Struktur</a>
+                                        </ActiveLink>
+                                    </li>
                                 </ul>
                             </li>
                             <li className="nav-item dropdown">

@@ -2,7 +2,8 @@ import Head from "next/head";
 import NavBarTop from "../components/NavBarTop";
 import Footer from "../components/Footer";
 import BreadcrumbArea from "../components/BreadcrumbArea";
-import imgDesa from "../public/desa.png"
+import imgDesa from "../public/desa.png";
+import imgLogo from "../public/logo.png";
 import Image from "next/image";
 
 const title = "Sejarah";
@@ -86,6 +87,7 @@ export default function Blog({ posts }) {
                         </div>
 				    </div>
                 </div>
+
             </main>
 
             <Footer />
