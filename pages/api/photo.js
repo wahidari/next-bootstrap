@@ -36,9 +36,9 @@ const photos = [
         width: 4,
         height: 3
     }
-]
+];
 
 export default function allHandler(req, res) {
-    res.status(200).json(photos)
-}
+    res.status(200).json(photos);
+};
 

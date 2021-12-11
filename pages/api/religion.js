@@ -5,9 +5,9 @@ const religion = [
     { "id": 3, "name": "Katolik", "total": "300" }, 
     { "id": 4, "name": "Hindu", "total": "200" },
     { "id": 5, "name": "Budha", "total": "100" },
-]
+];
 
 export default function allHandler(req, res) {
-    res.status(200).json(religion)
-}
+    res.status(200).json(religion);
+};
 

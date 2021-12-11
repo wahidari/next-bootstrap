@@ -16,9 +16,9 @@ const video = [
         src: "https://www.youtube.com/embed/XmtXC_n6X6Q",
         title: "Title Video 4"
     }
-]
+];
 
 export default function allHandler(req, res) {
-    res.status(200).json(video)
-}
+    res.status(200).json(video);
+};
 

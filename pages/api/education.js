@@ -5,9 +5,9 @@ const education = [
     { "id": 3, "name": "SMA", "total": "600" }, 
     { "id": 4, "name": "Diploma", "total": "400" },
     { "id": 5, "name": "Sarjana", "total": "200" },
-]
+];
 
 export default function allHandler(req, res) {
-    res.status(200).json(education)
-}
+    res.status(200).json(education);
+};
 

@@ -62,8 +62,8 @@ export async function getServerSideProps({ params }){
     return {
          props: { posts }
     };
-}
+};
 
 function capitalizeString(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
-}
+};
