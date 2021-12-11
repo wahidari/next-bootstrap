@@ -119,16 +119,16 @@ export async function getServerSideProps() {
 function populateData(param) {
     const labels = [], male = [], female = [], total = [];
     param.map(item =>
-        labels.push(item.name)
+        labels.push(item.name);
     );
     param.map(item =>
-        male.push(item.male)
+        male.push(item.male);
     );
     param.map(item =>
-        female.push(item.female)
+        female.push(item.female);
     );
     param.map(item =>
-        total.push(item.total)
+        total.push(item.total);
     );
     const data = {
         labels: labels,
@@ -158,19 +158,19 @@ function getTotalData(param) {
     const rt = [], kk = [], male = [], female = [], total = [];
 
     param.map(item =>
-        rt.push(item.rt)
+        rt.push(item.rt);
     );
     param.map(item =>
-        kk.push(item.kk)
+        kk.push(item.kk);
     );
     param.map(item =>
-        male.push(item.male)
+        male.push(item.male);
     );
     param.map(item =>
-        female.push(item.female)
+        female.push(item.female);
     );
     param.map(item =>
-        total.push(item.total)
+        total.push(item.total);
     );
 
     let totalRT = 0, totalKK = 0, totalMale = 0, totalFemale = 0, totalCount = 0;
