@@ -7,12 +7,12 @@ import { FaPhoneAlt, FaRegEnvelope, FaFacebook, FaInstagram, FaTwitter, FaYoutub
 
 export default function NavBarTop() {
     const [isFixedNavbar, setFixedNavbar] = useState("false");
+    
     useEffect(() => {
         setFixedNavbar(false);
         window.addEventListener("scroll", () => {
-            if (window.pageYOffset > 50) {
+            if (window.pageYOffset > 35) {
                 setFixedNavbar(true);
-                console.log("window height > 50");
             } else {
                 setFixedNavbar(false);
             }

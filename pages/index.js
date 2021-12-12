@@ -1,16 +1,20 @@
 import { useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import Head from 'next/head';
 import Link from "next/link";
+import Image from "next/image";
 import NavBarTop from '../components/NavBarTop';
 import CarouselHome from '../components/CarouselHome';
 import Footer from '../components/Footer';
-import { FaArrowRight } from "react-icons/fa";
 import PostCard from "../components/PostCard";
 import AgendaCard from '../components/AgendaCard';
 import VideoCard from '../components/VideoCard';
+import BackToTop from "../components/BackToTop";
+import imageLogo from "../public/logo.png";
 import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
-import React, { useState, useCallback } from "react";
+import { FaArrowRight, FaArrowDown } from "react-icons/fa";
+// Swiper
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import SwiperCore, { Autoplay } from 'swiper';
@@ -18,7 +22,9 @@ import SwiperCore, { Autoplay, Pagination } from 'swiper';
 import 'swiper/css';
 import "swiper/css/pagination"
 import "swiper/css/autoplay";
-import BackToTop from "../components/BackToTop";
+// Animate On Scroll
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // install Swiper modules
 // SwiperCore.use([Autoplay]);
@@ -28,6 +34,10 @@ const title = "Home";
 
 export default function Home({ posts, agendas, videos, photos }) {
 
+    useEffect(() => {
+        AOS.init();
+    });
+    
     // Take only 3 item as featured
     const featuredPost = posts.slice(0, 3);
     const featuredAgenda = agendas.slice(0, 2);
@@ -95,7 +105,31 @@ export default function Home({ posts, agendas, videos, photos }) {
 
                 <CarouselHome />
 
-                <div className="container my-5 py-4">
+                {/* <!-- Start Welcome  --> */}
+                <section className="py-5">
+                    <div className="container">
+                        <div className="row align-items-center justify-content-between">
+                            <div className="col-md-5" data-aos="fade-up" data-aos-duration="750">
+                                <div className="d-flex justify-content-center">
+                                    <Image alt="Logo" src={imageLogo} height={200} width={200} />
+                                </div>
+                            </div>
+                            <div className="col-md-7" data-aos="fade-up" data-aos-duration="1500">
+                                <div className="text-center text-md-start mt-3 mt-md-0">
+                                    <h3>Welcome To Our Web</h3>
+                                    <p className="text-dark-secondary" id="scroll-to-statistic">
+                                        Qui aliqua nostrud esse aliqua amet. Aute Lorem et aliquip Lorem consectetur consectetur non eiusmod voluptate nostrud sint Lorem laboris. Laborum eiusmod commodo nulla sunt elit Lorem et dolore aliquip exercitation.
+                                    </p>
+                                    <a href="#scroll-to" className="btn btn-primary shadow rounded px-3 scroll-to">See More <i className="ms-2"><FaArrowDown/></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {/* <!-- End Welcome  --> */}
+
+                <div className="container my-5 py-4" id="scroll-to">
                     <div className="d-flex align-items-center justify-content-between mb-4">
                         <h3 className="mb-0">Blog</h3>
                         <Link href="/blog">
