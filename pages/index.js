@@ -107,7 +107,7 @@ export default function Home({ posts, agendas, videos, photos }) {
 
                 <CarouselHome />
 
-                {/* <div className="container my-5 py-4">
+                <div className="container my-5 py-4">
                     <div className="d-flex align-items-center justify-content-between mb-4">
                         <h3 className="mb-0">Blog</h3>
                         <Link href="/blog">
@@ -166,7 +166,7 @@ export default function Home({ posts, agendas, videos, photos }) {
                             )}
                         </Swiper>
                     </div>
-                </div> */}
+                </div>
 
                 <div className="container my-5 py-4">
                     <div className="d-flex align-items-center justify-content-between mb-4">
