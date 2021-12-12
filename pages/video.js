@@ -3,6 +3,7 @@ import NavBarTop from "../components/NavBarTop";
 import Footer from "../components/Footer";
 import Breadcrumb from "../components/Breadcrumb";
 import VideoCard from "../components/VideoCard";
+import BackToTop from "../components/BackToTop";
 
 const title = "Video";
 
@@ -46,6 +47,8 @@ export default function Galeri({ videos }) {
             </main>
 
             <Footer />
+
+            <BackToTop />
 
         </>
     );

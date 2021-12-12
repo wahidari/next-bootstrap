@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import Head from 'next/head';
 import Link from "next/link";
 import NavBarTop from '../components/NavBarTop';
 import CarouselHome from '../components/CarouselHome';
 import Footer from '../components/Footer';
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaArrowAltCircleUp } from "react-icons/fa";
 import PostCard from "../components/PostCard";
 import AgendaCard from '../components/AgendaCard';
 import VideoCard from '../components/VideoCard';
@@ -17,6 +18,7 @@ import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/css';
 // import "swiper/css/pagination"
 import "swiper/css/autoplay";
+import BackToTop from "../components/BackToTop";
 
 // install Swiper modules
 SwiperCore.use([Autoplay]);
@@ -81,6 +83,14 @@ export default function Home({ posts, agendas, videos, photos }) {
                 main {
                     margin-top: 58px;
                     min-height: 100vh;
+                }
+                .btn-back-to-top {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    padding: 0px 7px 4px;
+                    font-size: 20px;
+                    z-index: 1000;
                 }
             `}
             </style>
@@ -259,6 +269,8 @@ export default function Home({ posts, agendas, videos, photos }) {
             </main>
 
             <Footer />
+
+            <BackToTop />
         </>
     );
 };

@@ -3,6 +3,7 @@ import NavBarTop from "../components/NavBarTop";
 import Footer from "../components/Footer";
 import Breadcrumb from "../components/Breadcrumb";
 import PostCard from "../components/PostCard";
+import BackToTop from "../components/BackToTop";
 
 const title = "Blog";
 
@@ -50,6 +51,8 @@ export default function Blog({posts}) {
             </main>
 
             <Footer />
+
+            <BackToTop />
         </>
     );
 };

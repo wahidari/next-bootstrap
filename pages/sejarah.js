@@ -5,6 +5,7 @@ import BreadcrumbArea from "../components/BreadcrumbArea";
 import imgDesa from "../public/desa.png";
 import imgLogo from "../public/logo.png";
 import Image from "next/image";
+import BackToTop from "../components/BackToTop";
 
 const title = "Sejarah";
 
@@ -91,6 +92,8 @@ export default function Blog({ posts }) {
             </main>
 
             <Footer />
+
+            <BackToTop />
         </>
     );
 };

@@ -5,6 +5,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import React, { useState, useCallback } from "react";
+import BackToTop from "../components/BackToTop";
 
 const title = "Foto";
 
@@ -101,6 +102,7 @@ export default function Galeri({ photos }) {
 
             <Footer />
 
+            <BackToTop />
         </>
     );
 };

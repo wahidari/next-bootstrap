@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Breadcrumb from "../components/Breadcrumb";
 import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
 import { Bar, Doughnut, Pie } from 'react-chartjs-2';
+import BackToTop from "../components/BackToTop";
 
 ChartJS.register( ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement );
 
@@ -182,6 +183,8 @@ export default function Chart({ gender, education, religion }) {
             </main>
 
             <Footer />
+            
+            <BackToTop />
         </>
     );
 };
@@ -204,10 +207,10 @@ function populateData(param) {
     const labels = [];
     const totals = [];
     param.map(item =>
-        labels.push(item.name);
+        labels.push(item.name)
     );
     param.map(item =>
-        totals.push(item.total);
+        totals.push(item.total)
     );
     const data = {
         labels: labels,
@@ -223,12 +226,12 @@ function populateData(param) {
 function getTotalData(param) {
     const totals = [];
     param.map(item =>
-        totals.push(item.total);
+        totals.push(item.total)
     );
 
     let total = 0;
     for (let index = 0; index < totals.length; index++) {
-        total += parseInt(totals[index]);
+        total += parseInt(totals[index])
     }
 
     return (total);

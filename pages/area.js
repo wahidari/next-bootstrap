@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Breadcrumb from "../components/Breadcrumb";
 import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import BackToTop from "../components/BackToTop";
 
 ChartJS.register( ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement );
 
@@ -102,6 +103,7 @@ export default function Area({ area }) {
             </main>
 
             <Footer />
+            <BackToTop />
         </>
     );
 };

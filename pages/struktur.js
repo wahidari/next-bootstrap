@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import BreadcrumbArea from "../components/BreadcrumbArea";
 import imgLogo from "../public/logo.png";
 import Image from "next/image";
+import BackToTop from "../components/BackToTop";
 
 const title = "Struktur";
 
@@ -121,6 +122,8 @@ export default function Blog({ posts }) {
             </main>
 
             <Footer />
+
+            <BackToTop />
         </>
     );
 };
