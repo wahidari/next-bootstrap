@@ -107,16 +107,16 @@ export default function Footer() {
                             </p>
                         </div>
                         <div className="col-md-4 my-1 text-center text-md-end ">
-                            <a href="#" className="text-white-80 mx-2 text-decoration-none text-18">
+                            <a href="#" aria-label="Facebook" className="text-white-80 mx-2 text-decoration-none text-18">
                                 <FaFacebook/>
                             </a>
-                            <a href="#" className="text-white-80 mx-2 text-decoration-none text-18">
+                            <a href="#" aria-label="Twitter" className="text-white-80 mx-2 text-decoration-none text-18">
                                 <FaTwitter/>
                             </a>
-                            <a href="#" className="text-white-80 mx-2 text-decoration-none text-18">
+                            <a href="#" aria-label="Youtube" className="text-white-80 mx-2 text-decoration-none text-18">
                                 <FaYoutube/>
                             </a>
-                            <a href="#" className="text-white-80 mx-2 text-decoration-none text-18">
+                            <a href="#" aria-label="Instagram" className="text-white-80 mx-2 text-decoration-none text-18">
                                 <FaInstagram/>
                             </a>
                         </div>
