@@ -14,10 +14,6 @@ export default function Blog({ posts }) {
         <>
             <style jsx>
                 {`
-                main {
-                    margin-top: 58px;
-                    min-height: 100vh;
-                }
                 .maps {
                     height: 450px;
                 }

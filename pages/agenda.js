@@ -12,10 +12,6 @@ export default function Blog({agendas}) {
         <>
             <style jsx>
                 {`
-                main {
-                    margin-top: 60px;
-                    min-height: 100vh;
-                }
             `}
             </style>
 

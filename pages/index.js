@@ -4,7 +4,7 @@ import Link from "next/link";
 import NavBarTop from '../components/NavBarTop';
 import CarouselHome from '../components/CarouselHome';
 import Footer from '../components/Footer';
-import { FaArrowRight, FaArrowAltCircleUp } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import PostCard from "../components/PostCard";
 import AgendaCard from '../components/AgendaCard';
 import VideoCard from '../components/VideoCard';
@@ -80,18 +80,6 @@ export default function Home({ posts, agendas, videos, photos }) {
         <>
             <style jsx>
                 {`
-                main {
-                    margin-top: 58px;
-                    min-height: 100vh;
-                }
-                .btn-back-to-top {
-                    position: fixed;
-                    bottom: 20px;
-                    right: 20px;
-                    padding: 0px 7px 4px;
-                    font-size: 20px;
-                    z-index: 1000;
-                }
             `}
             </style>
 

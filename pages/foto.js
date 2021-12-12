@@ -57,10 +57,6 @@ export default function Galeri({ photos }) {
         <>
             <style jsx>
                 {`
-                main {
-                    margin-top: 60px;
-                    min-height: 100vh;
-                }
             `}
             </style>
 

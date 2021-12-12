@@ -19,10 +19,6 @@ export default function Area({ area }) {
         <>
             <style jsx>
                 {`
-                main {
-                    margin-top: 60px;
-                    min-height: 100vh;
-                }
                 .shadow-card {
                     box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
                 }

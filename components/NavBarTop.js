@@ -2,8 +2,22 @@ import Image from "next/image"
 import Link from "next/link"
 import imgLogo from "../public/logo.png"
 import ActiveLink from './ActiveLink'
+import React, { useState, useEffect } from "react";
+import { FaPhoneAlt, FaRegEnvelope, FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 export default function NavBarTop() {
+    const [isFixedNavbar, setFixedNavbar] = useState("false");
+    useEffect(() => {
+        setFixedNavbar(false);
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 50) {
+                setFixedNavbar(true);
+                console.log("window height > 50");
+            } else {
+                setFixedNavbar(false);
+            }
+        });
+    }, []);
 
     return (
         <>
@@ -12,10 +26,47 @@ export default function NavBarTop() {
                     .nav-item a.active {
                         color: #0d6efd;
                     }
+                    .text-14 {
+                        font-size: 14px !important;
+                    }
                 `}
             </style>
-
-            <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+            <div className="d-none d-md-block bg-light py-2">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-6 col-sm-8">
+                            <div className="">
+                                <a href="#" className="text-decoration-none text-14 text-black-50">
+                                    <i className="me-2"><FaPhoneAlt /></i>
+                                    08123456789
+                                </a>
+                                <span className="mx-2 text-black-50">|</span>
+                                <a href="#" className="text-decoration-none text-14 text-black-50">
+                                    <i className="me-2"><FaRegEnvelope /></i>
+                                    admin@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        <div className="col-lg-6 col-sm-4">
+                            <div className="float-end">
+                                <a href="#" className="mx-2 text-black-50" aria-label="Facebook">
+                                    <i className=""><FaFacebook/></i>
+                                </a>
+                                <a href="#" className="mx-2 text-black-50" aria-label="Twitter">
+                                    <i className=""><FaTwitter/></i>
+                                </a>
+                                <a href="#" className="mx-2 text-black-50" aria-label="Youtube">
+                                    <i className=""><FaYoutube/></i>
+                                </a>
+                                <a href="#" className="mx-2 text-black-50" aria-label="Instagram">
+                                    <i className=""><FaInstagram/></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav className={`navbar navbar-expand-lg navbar-light bg-white shadow-sm ${isFixedNavbar ? "fixed-top" : ""}`}>
                 <div className="container">
                     <Link href="/">
                         <a className="navbar-brand d-flex align-items-center">
