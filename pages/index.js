@@ -13,16 +13,16 @@ import Carousel, { Modal, ModalGateway } from 'react-images';
 import React, { useState, useCallback } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Autoplay } from 'swiper';
-// import SwiperCore, { Autoplay, Pagination } from 'swiper';
+// import SwiperCore, { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay, Pagination } from 'swiper';
 import 'swiper/css';
-// import "swiper/css/pagination"
+import "swiper/css/pagination"
 import "swiper/css/autoplay";
 import BackToTop from "../components/BackToTop";
 
 // install Swiper modules
-SwiperCore.use([Autoplay]);
-// SwiperCore.use([Autoplay, Pagination]);
+// SwiperCore.use([Autoplay]);
+SwiperCore.use([Autoplay, Pagination]);
 
 const title = "Home";
 
@@ -146,9 +146,9 @@ export default function Home({ posts, agendas, videos, photos }) {
                                 "delay": 4000,
                                 "disableOnInteraction": false
                             }}
-                            // pagination={{
-                            //     "clickable": true
-                            // }} 
+                            pagination={{
+                                "clickable": true
+                            }} 
                             // navigation={false}
                             loop={true}
                         >
@@ -168,7 +168,7 @@ export default function Home({ posts, agendas, videos, photos }) {
                     </div>
                 </div>
 
-                <div className="container my-5 py-4">
+                {/* <div className="container my-5 py-4">
                     <div className="d-flex align-items-center justify-content-between mb-4">
                         <h3 className="mb-0">Blog</h3>
                         <Link href="/blog">
@@ -191,9 +191,70 @@ export default function Home({ posts, agendas, videos, photos }) {
                             </div>
                         )}
                     </div>
-                </div>
+                </div> */}
 
                 <div className="container my-5 py-4">
+                    <div className="d-flex align-items-center justify-content-between mb-4">
+                        <h3 className="mb-0">Agenda</h3>
+                        <Link href="/agenda">
+                            <a className="text-decoration-none">All Agenda
+                                <i className="ms-2"><FaArrowRight /></i>
+                            </a>
+                        </Link>
+                    </div>
+                    <div className="row g-4">
+                        <Swiper className="swiper-custom"
+                            spaceBetween={24}
+                            slidesPerView={3}
+                            breakpoints={{
+                                "320": {
+                                    "slidesPerView": 1,
+                                    "spaceBetween": 24
+                                },
+                                "480": {
+                                    "slidesPerView": 1,
+                                    "spaceBetween": 24
+                                },
+                                "640": {
+                                    "slidesPerView": 1,
+                                    "spaceBetween": 24
+                                },
+                                "768": {
+                                    "slidesPerView": 1,
+                                    "spaceBetween": 24
+                                },
+                                "1024": {
+                                    "slidesPerView": 2,
+                                    "spaceBetween": 24
+                                }
+                            }}
+                            autoplay={{
+                                "delay": 6000,
+                                "disableOnInteraction": false
+                            }}
+                            pagination={{
+                                "clickable": true
+                            }} 
+                            // navigation={false}
+                            loop={true}
+                        >
+                            {agendas.map(agenda=>
+                                <SwiperSlide key={agenda.id}>
+                                    <AgendaCard
+                                        id={agenda.id}
+                                        slug={agenda.slug}
+                                        image={agenda.image}
+                                        title={agenda.title}
+                                        location={agenda.location}
+                                        date={agenda.date}
+                                        time={agenda.time} />
+                                </SwiperSlide>
+                            )}
+                        </Swiper>
+                    </div>
+                </div>
+
+                {/* <div className="container my-5 py-4">
                     <div className="d-flex align-items-center justify-content-between mb-4">
                         <h3 className="mb-0">Agenda</h3>
                         <Link href="/agenda">
@@ -216,7 +277,7 @@ export default function Home({ posts, agendas, videos, photos }) {
                             </div>
                         )}
                     </div>
-                </div>
+                </div> */}
 
                 <div className="container my-5 py-4">
                     <div className="d-flex align-items-center justify-content-between mb-4">
