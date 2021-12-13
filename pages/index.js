@@ -37,7 +37,7 @@ export default function Home({ posts, agendas, videos, photos }) {
     useEffect(() => {
         AOS.init();
     });
-    
+
     // Take only 3 item as featured
     const featuredPost = posts.slice(0, 3);
     const featuredAgenda = agendas.slice(0, 2);
@@ -97,6 +97,12 @@ export default function Home({ posts, agendas, videos, photos }) {
                 <title>{title}</title>
                 <meta name="description" content="Next Bootstrap" />
                 <link rel="icon" href="/favicon.ico" />
+                {/* <!-- Open Graph / Facebook --> */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://next-bootstrapp.vercel.app/" />
+                <meta property="og:title" content="Next Bootstrap" />
+                <meta property="og:description" content="Next Bootstrap" />
+                <meta property="og:image" content="https://next-bootstrapp.vercel.app/logo.png"></meta>
             </Head>
 
             <NavBarTop />
@@ -120,7 +126,7 @@ export default function Home({ posts, agendas, videos, photos }) {
                                     <p className="text-dark-secondary" id="scroll-to-statistic">
                                         Qui aliqua nostrud esse aliqua amet. Aute Lorem et aliquip Lorem consectetur consectetur non eiusmod voluptate nostrud sint Lorem laboris. Laborum eiusmod commodo nulla sunt elit Lorem et dolore aliquip exercitation.
                                     </p>
-                                    <a href="#scroll-to" className="btn btn-primary shadow rounded px-3 scroll-to">See More <i className="ms-2"><FaArrowDown/></i>
+                                    <a href="#scroll-to" className="btn btn-primary shadow rounded px-3 scroll-to">See More <i className="ms-2"><FaArrowDown /></i>
                                     </a>
                                 </div>
                             </div>
@@ -170,7 +176,7 @@ export default function Home({ posts, agendas, videos, photos }) {
                             }}
                             pagination={{
                                 "clickable": true
-                            }} 
+                            }}
                             // navigation={false}
                             loop={true}
                         >
@@ -256,11 +262,11 @@ export default function Home({ posts, agendas, videos, photos }) {
                             }}
                             pagination={{
                                 "clickable": true
-                            }} 
+                            }}
                             // navigation={false}
                             loop={true}
                         >
-                            {agendas.map(agenda=>
+                            {agendas.map(agenda =>
                                 <SwiperSlide key={agenda.id}>
                                     <AgendaCard
                                         id={agenda.id}
