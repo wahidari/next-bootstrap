@@ -102,7 +102,7 @@ export default function Home({ posts, agendas, videos, photos }) {
                 <meta property="og:url" content="https://next-bootstrapp.vercel.app/" />
                 <meta property="og:title" content="Next Bootstrap" />
                 <meta property="og:description" content="Next Bootstrap" />
-                <meta property="og:image" content="https://next-bootstrapp.vercel.app/logo.png"></meta>
+                <meta property="og:image" content="https://next-bootstrapp.vercel.app/metalogo.png"></meta>
             </Head>
 
             <NavBarTop />
