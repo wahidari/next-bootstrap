@@ -3,9 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import NavBarTop from "../../components/NavBarTop";
 import Footer from "../../components/Footer";
-import { FaRegCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 import PostList from "../../components/PostList";
 import AgendaList from "../../components/AgendaList";
+import BackToTop from "../../components/BackToTop";
+import { FaRegCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Agendaetail({ agenda, randomPosts, randomAgendas}) {
     // console.log(post.author)
@@ -19,8 +20,7 @@ export default function Agendaetail({ agenda, randomPosts, randomAgendas}) {
             <style jsx>
                 {`
                 main {
-                    margin-top: 60px;
-                    min-height: 100vh;
+                    
                 }
                 .card-title {
                     font-weight: 500;
@@ -148,6 +148,8 @@ export default function Agendaetail({ agenda, randomPosts, randomAgendas}) {
             </main>
             
             <Footer />
+
+            <BackToTop />
         </>
     );
 };
