@@ -154,6 +154,7 @@ function populateData(param) {
 // Count each row value for total row
 function getTotalData(param) {
     const rt = [], kk = [], male = [], female = [], total = [];
+    let totalRT = 0, totalKK = 0, totalMale = 0, totalFemale = 0, totalCount = 0;
 
     param.map(item =>
         rt.push(item.rt)
@@ -171,7 +172,6 @@ function getTotalData(param) {
         total.push(item.total)
     );
 
-    let totalRT = 0, totalKK = 0, totalMale = 0, totalFemale = 0, totalCount = 0;
     for (let i = 0; i < rt.length; i++) {
         totalRT += parseInt(rt[i]);
         totalKK += parseInt(kk[i]);

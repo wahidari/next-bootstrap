@@ -24,6 +24,13 @@ https://next-bootstrapp.vercel.app/api/religion
 ### Data by Area
 https://next-bootstrapp.vercel.app/api/area
 
+## Product API
+### All Product
+https://next-bootstrapp.vercel.app/api/product
+
+## Covid API
+### All
+https://next-bootstrapp.vercel.app/api/covid
 
 ## Installation
 

@@ -165,6 +165,11 @@ export default function NavBarTop() {
                                     <a className="nav-link">Bumdes</a>
                                 </ActiveLink>
                             </li>
+                            <li className="nav-item ms-0 ms-lg-2">
+                                <ActiveLink activeClassName="active" href="/covid">
+                                    <a className="nav-link">Covid-19</a>
+                                </ActiveLink>
+                            </li>
                         </ul>
                     </div>
                 </div>
