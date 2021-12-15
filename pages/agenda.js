@@ -7,7 +7,7 @@ import BackToTop from "../components/BackToTop";
 
 const title = "Agenda";
 
-export default function Blog({agendas}) {
+export default function Agenda({agendas}) {
     return (
         <>
             <style jsx>

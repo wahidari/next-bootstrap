@@ -9,7 +9,7 @@ import BackToTop from "../components/BackToTop";
 
 const title = "Foto";
 
-export default function Galeri({ photos }) {
+export default function Foto({ photos }) {
     // console.log(photos)
 
     const [currentImage, setCurrentImage] = useState(0);

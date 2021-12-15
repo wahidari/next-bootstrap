@@ -9,7 +9,7 @@ import BackToTop from "../components/BackToTop";
 
 const title = "Sejarah";
 
-export default function Blog({ posts }) {
+export default function Sejarah({ posts }) {
     return (
         <>
             <style jsx>

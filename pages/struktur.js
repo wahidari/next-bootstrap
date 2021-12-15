@@ -8,7 +8,7 @@ import BackToTop from "../components/BackToTop";
 
 const title = "Struktur";
 
-export default function Blog({ posts }) {
+export default function Struktur({ posts }) {
     return (
         <>
             <style jsx>

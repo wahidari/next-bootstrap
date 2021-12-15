@@ -7,7 +7,7 @@ import BackToTop from "../components/BackToTop";
 
 const title = "Video";
 
-export default function Galeri({ videos }) {
+export default function Video({ videos }) {
 
     return (
         <>

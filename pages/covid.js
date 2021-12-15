@@ -11,7 +11,7 @@ ChartJS.register( ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarEl
 const title = "Covid-19";
 const colors = ["#36b9cc", "#1cc88a", "#6f42c1", "#e74a3b", "#fd7e14", "#f6c23e"];
 
-export default function Chart({ covid }) {
+export default function Covid({ covid }) {
 
     // const dataGender = populateData(gender);
     const [totalKonfirmasi, totalAktif, totalSembuh, totalMeninggal] = getTotalData(covid);
@@ -31,6 +31,9 @@ export default function Chart({ covid }) {
                     .border-start {
                         border-left-color: #ffffff00 !important;
                     }
+                }
+                h6 {
+                    font-size: 18px;
                 }
             `}
             </style>
@@ -160,7 +163,7 @@ export default function Chart({ covid }) {
                                 <div className="tab-content" id="v-pills-tabContent">
                                     <div className="tab-pane fade show active" id="v-pills-apa" role="tabpanel"
                                         aria-labelledby="v-pills-apa-tab">
-                                        <h5 className="mb-3">Pengertian Covid-19</h5>
+                                        <h6 className="mb-3">Pengertian Covid-19</h6>
                                         <p className="text-dark-secondary">Coronavirus Disease 2019 atau COVID-19 adalah
                                             penyakit baru yang dapat menyebabkan gangguan
                                             pernapasan dan radang paru.
@@ -174,7 +177,7 @@ export default function Chart({ covid }) {
                                     </div>
                                     <div className="tab-pane fade show" id="v-pills-bagaimana" role="tabpanel"
                                         aria-labelledby="v-pills-bagaimana-tab">
-                                        <h5 className="mb-3">Covid-19 Menular Dengan Cara</h5>
+                                        <h6 className="mb-3">Covid-19 Menular Dengan Cara</h6>
                                         <p className="text-dark-secondary">COVID-19 adalah penyakit baru dan para peneliti masih
                                             mempelajari bagaimana cara penularannya. Dari berbagai penelitian,
                                             metode penyebaran utama penyakit ini diduga adalah melalui droplet saluran
@@ -193,7 +196,7 @@ export default function Chart({ covid }) {
                                     </div>
                                     <div className="tab-pane fade show" id="v-pills-gejala" role="tabpanel"
                                         aria-labelledby="v-pills-gejala-tab">
-                                        <h5 className="mb-3">Gejala Covid-19</h5>
+                                        <h6 className="mb-3">Gejala Covid-19</h6>
                                         <p className="text-dark-secondary">Gejala umum berupa demam ≥380C, batuk kering, dan
                                             sesak napas. Jika ada orang yang dalam 14 hari sebelum muncul gejala
                                             tersebut pernah melakukan perjalanan ke negara terjangkit, atau pernah
@@ -204,13 +207,15 @@ export default function Chart({ covid }) {
                                     <div className="tab-pane fade show" id="v-pills-mencegah" role="tabpanel"
                                         aria-labelledby="v-pills-mencegah-tab">
                                         <h5 className="mb-3">Pencegahan Penyebaran Covid-19</h5>
-                                        <p className="text-dark-secondary">1. Cuci Tangan Sesering Mungkin</p>
-                                        <p className="text-dark-secondary">2. Jaga Jarak</p>
-                                        <p className="text-dark-secondary">3. Hindari menyentuh mata, hidung, dan mulut</p>
-                                        <p className="text-dark-secondary">4. Lakukan Kebersihan Pernapasan</p>
-                                        <p className="text-dark-secondary">5. Jika Mengalami Demam, Batuk, dan Kesulitan
-                                            Bernapas, Cari Perawatan Medis Sejak Dini</p>
-                                        <p className="text-dark-secondary">6. Update Informasi dan Ikuti Saran Tenaga Medis</p>
+                                        <ul className="list-unstyled">
+                                            <li className="mb-2">1. Cuci Tangan Sesering Mungkin</li>
+                                            <li className="mb-2">2. Jaga Jarak</li>
+                                            <li className="mb-2">3. Hindari menyentuh mata, hidung, dan mulut</li>
+                                            <li className="mb-2">4. Lakukan Kebersihan Pernapasan</li>
+                                            <li className="mb-2">5. Jika Mengalami Demam, Batuk, dan Kesulitan
+                                                Bernapas, Cari Perawatan Medis Sejak Dini</li>
+                                            <li className="mb-2">6. Update Informasi dan Ikuti Saran Tenaga Medis</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>

@@ -66,7 +66,7 @@ export default function NavBarTop() {
                     </div>
                 </div>
             </div>
-            <nav className={`navbar navbar-expand-lg navbar-light bg-white shadow-sm ${isFixedNavbar ? "fixed-top" : ""}`}>
+            <nav className={`navbar navbar-expand-xl navbar-light bg-white shadow-sm ${isFixedNavbar ? "fixed-top" : ""}`}>
                 <div className="container">
                     <Link href="/">
                         <a className="navbar-brand d-flex align-items-center">
@@ -86,13 +86,13 @@ export default function NavBarTop() {
                     <div className="collapse navbar-collapse" id="navbarToggler">
                         {/* <hr className="d-lg-none mt-2 mb-0"></hr> */}
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li className="nav-item ms-0 ms-lg-2 mt-2 mt-lg-0">
+                            <li className="nav-item mt-2 mt-lg-0 me-lg-1 align-self-center">
                                 <ActiveLink activeClassName="active" href="/">
                                     <a className="nav-link">Home</a>
                                 </ActiveLink>
                             </li>
                             {/* <hr className="d-lg-none my-1"></hr> */}
-                            <li className="nav-item dropdown">
+                            <li className="nav-item dropdown me-lg-1 align-self-center">
                                 <a className="nav-link dropdown-toggle" href="#" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Profil
                                 </a>
@@ -109,7 +109,7 @@ export default function NavBarTop() {
                                     </li>
                                 </ul>
                             </li>
-                            <li className="nav-item dropdown">
+                            <li className="nav-item dropdown me-lg-1 align-self-center">
                                 <a className="nav-link dropdown-toggle" href="#" id="informasiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Informasi
                                 </a>
@@ -126,7 +126,7 @@ export default function NavBarTop() {
                                     </li>
                                 </ul>
                             </li>
-                            <li className="nav-item dropdown">
+                            <li className="nav-item dropdown me-lg-1 align-self-center">
                                 <a className="nav-link dropdown-toggle" href="#" id="chartDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Demografis
                                 </a>
@@ -143,7 +143,7 @@ export default function NavBarTop() {
                                     </li>
                                 </ul>
                             </li>
-                            <li className="nav-item dropdown">
+                            <li className="nav-item dropdown me-lg-1 align-self-center">
                                 <a className="nav-link dropdown-toggle" href="#" id="galeriDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Galeri
                                 </a>
@@ -160,14 +160,19 @@ export default function NavBarTop() {
                                     </li>
                                 </ul>
                             </li>
-                            <li className="nav-item ms-0 ms-lg-2">
+                            <li className="nav-item me-lg-1 align-self-center">
                                 <ActiveLink activeClassName="active" href="/bumdes">
                                     <a className="nav-link">Bumdes</a>
                                 </ActiveLink>
                             </li>
-                            <li className="nav-item ms-0 ms-lg-2">
+                            <li className="nav-item me-lg-1 align-self-center">
                                 <ActiveLink activeClassName="active" href="/covid">
                                     <a className="nav-link">Covid-19</a>
+                                </ActiveLink>
+                            </li>
+                            <li className="nav-item me-lg-1 align-self-center">
+                                <ActiveLink activeClassName="active" href="/danadesa">
+                                    <a className="nav-link">Dana Desa</a>
                                 </ActiveLink>
                             </li>
                         </ul>

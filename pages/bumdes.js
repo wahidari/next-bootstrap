@@ -7,7 +7,7 @@ import BackToTop from "../components/BackToTop";
 
 const title = "Bumdes";
 
-export default function Blog({products}) {
+export default function Bumdes({products}) {
     return (
         <>
             <style jsx>
