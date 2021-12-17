@@ -9,20 +9,34 @@ import BackToTop from "../components/BackToTop";
 ChartJS.register( ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement );
 
 const title = "Dana Desa";
-const colors = ["#36b9cc", "#1cc88a", "#6f42c1", "#e74a3b", "#fd7e14", "#f6c23e"];
+const colors = ["#36b9cc", "#e74a3b", "#fd7e14", "#f6c23e"];
 
 export default function DanaDesa({ danadesa }) {
 
-    // const dataGender = populateData(gender);
-    // const [totalKonfirmasi, totalAktif, totalSembuh, totalMeninggal] = getTotalData(covid);
-    console.log(danadesa);
+    
+    const [totalPendapatanAnggaran, totalPendapatanRealisasi, totalPendapatanSelisih, totalPendapatanPresentase] = getTotalData(danadesa.pendapatan);
+    const [totalBelanjaAnggaran, totalBelanjaRealisasi, totalBelanjaSelisih, totalBelanjaPresentase] = getTotalData(danadesa.belanja);
+    const [totalPembiayaanAnggaran, totalPembiayaanRealisasi, totalPembiayaanSelisih, totalPembiayaanPresentase] = getTotalData(danadesa.pembiayaan);
+    // console.log(danadesa);
+    // console.log(totalPendapatanSelisih);
+
+    const dataDanaDesa = {
+        labels: ["Pendapatan", "Belanja", "Pembiayaan"],
+        datasets: [{
+            data: [totalPendapatanRealisasi, totalBelanjaRealisasi, totalPembiayaanRealisasi],
+            backgroundColor: colors
+        }]
+    };
     
     return (
         <>
             <style jsx>
                 {`
-                .shadow-custom {
+                .shadow-card {
                     box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
+                }
+                .fw-600 {
+                    font-weight: 600;
                 }
             `}
             </style>
@@ -37,41 +51,125 @@ export default function DanaDesa({ danadesa }) {
 
             <main>
                 <div className="bg-light">
-                    <Breadcrumb pageName="Covid-19" currentPage="Covid-19" />
+                    <Breadcrumb pageName="Dana Desa" currentPage="Dana Desa" />
                 </div>
 
                 <div className="container my-5">
-                    <h5 className="mt-5 mb-4">Tabel Sebaran Covid-19</h5>
-                    <div className="table-responsive mt-3">
-                        <table id="tabel-sebaran" className="table table-bordered table-hover text-center">
-                            <thead>
-                                <tr>
-                                    <th>Kecamatan</th>
-                                    <th>Konfirmasi</th>
-                                    <th>Aktif</th>
-                                    <th>Sembuh</th>
-                                    <th>Meninggal</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {/* {covid.dataKecamatan.map(item => 
-                                    <tr key={item.id}>
-                                        <td>{item.kecamatan}</td>
-                                        <td>{item.konfirmasi}</td>
-                                        <td>{item.aktif}</td>
-                                        <td>{item.sembuh}</td>
-                                        <td>{item.meninggal}</td>
-                                    </tr>
-                                )} */}
-                                <tr>
-                                    <td className="text-center fw-bold">Jumlah</td>
-                                    {/* <td className="text-center fw-bold">{totalKonfirmasi}</td>
-                                    <td className="text-center fw-bold">{totalAktif}</td>
-                                    <td className="text-center fw-bold">{totalSembuh}</td>
-                                    <td className="text-center fw-bold">{totalMeninggal}</td> */}
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div className="card rounded shadow-card border-0 my-5">
+                        <div className="card-header py-3">
+                            <h5 className="m-0 font-weight-bold">Dana Desa</h5>
+                        </div>
+                        <div className="card-body">
+                            <h5>Grafik</h5>
+                            <div className="col-md-8 col-lg-5 mx-auto">
+                                <Doughnut
+                                    data={dataDanaDesa}
+                                    width={400}
+                                    height={250}
+                                />
+                                {/* <Bar
+                                    data={dataDanaDesa}
+                                    width={400}
+                                    height={250}
+                                /> */}
+                            </div>
+                            <h5 className="mt-5">Tabel Data</h5>
+                            <div className="table-responsive mt-3">
+                                <table className="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Uraian</th>
+                                            <th>Anggaran (Rp.)</th>
+                                            <th>Realisasi (Rp.)</th>
+                                            <th>Lebih/Kurang (Rp.)</th>
+                                            <th>Persentase (%)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td className="fw-bold">PENDAPATAN</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        {danadesa.pendapatan.map(item =>
+                                            <tr key={item.id}>
+                                                <td>{item.nama}</td>
+                                                <td>{item.anggaran}</td>
+                                                <td>{item.realisasi}</td>
+                                                <td>{item.selisih}</td>
+                                                <td>{item.presentase}</td>
+                                            </tr>
+                                        )}
+                                        <tr>
+                                            <td className="fw-bold">Jumlah</td>
+                                            <td className="fw-bold">{totalPendapatanAnggaran}</td>
+                                            <td className="fw-bold">{totalPendapatanRealisasi}</td>
+                                            <td className="fw-bold">{totalPendapatanSelisih}</td>
+                                            <td className="fw-bold">{totalPendapatanPresentase}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colSpan="5"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td className="fw-bold">BELANJA</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        {danadesa.belanja.map(item =>
+                                            <tr key={item.id}>
+                                                <td>{item.nama}</td>
+                                                <td>{item.anggaran}</td>
+                                                <td>{item.realisasi}</td>
+                                                <td>{item.selisih}</td>
+                                                <td>{item.presentase}</td>
+                                            </tr>
+                                        )}
+                                        <tr>
+                                            <td className="fw-bold">Jumlah</td>
+                                            <td className="fw-bold">{totalBelanjaAnggaran}</td>
+                                            <td className="fw-bold">{totalBelanjaRealisasi}</td>
+                                            <td className="fw-bold">{totalBelanjaSelisih}</td>
+                                            <td className="fw-bold">{totalBelanjaPresentase}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colSpan="5"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td className="fw-bold">PEMBIAYAAN</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        {danadesa.pembiayaan.map(item =>
+                                            <tr key={item.id}>
+                                                <td>{item.nama}</td>
+                                                <td>{item.anggaran}</td>
+                                                <td>{item.realisasi}</td>
+                                                <td>{item.selisih}</td>
+                                                <td>{item.presentase}</td>
+                                            </tr>
+                                        )}
+                                        <tr>
+                                            <td className="fw-bold">Jumlah</td>
+                                            <td className="fw-bold">{totalPembiayaanAnggaran}</td>
+                                            <td className="fw-bold">{totalPembiayaanRealisasi}</td>
+                                            <td className="fw-bold">{totalPembiayaanSelisih}</td>
+                                            <td className="fw-bold">{totalPembiayaanPresentase}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colSpan="5"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -89,20 +187,21 @@ export async function getServerSideProps() {
     const getDataDanaDesa = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/danadesa`);
     const danadesa = await getDataDanaDesa.json();
     return {
-        props: { danadesa: danadesa }, // will be passed to the page component as props
+        props: { danadesa }, // will be passed to the page component as props
     };
 };
 
 // Populate Data for ChartJS 
 function populateData(param) {
+    console.log(param)
     const labels = [];
     const totals = [];
-    param.map(item =>
-        labels.push(item.name)
-    );
-    param.map(item =>
-        totals.push(item.total)
-    );
+    // param.map(item =>
+    //     labels.push(item.name)
+    // );
+    // param.map(item =>
+    //     totals.push(item.total)
+    // );
     const data = {
         labels: labels,
         datasets: [{
@@ -115,27 +214,29 @@ function populateData(param) {
 
 // Count each row value for total row
 function getTotalData(param) {
-    const konfirmasi = [], aktif = [], sembuh = [], meninggal = [];
-    let totalKonfirmasi = 0, totalAktif = 0, totalSembuh = 0, totalMeninggal = 0;
-    param.dataKecamatan.map(item =>
-        konfirmasi.push(item.konfirmasi)
+    const anggaran = [], realisasi = [], selisih = [], presentase = [];
+    let totalAnggaran = 0, totalRealisasi = 0, totalSelisih = 0, totalPresentase = 0;
+    param.map(item =>
+        anggaran.push(item.anggaran)
     );
-    param.dataKecamatan.map(item =>
-        aktif.push(item.aktif)
+    param.map(item =>
+        realisasi.push(item.realisasi)
     );
-    param.dataKecamatan.map(item =>
-        sembuh.push(item.sembuh)
+    param.map(item =>
+        selisih.push(item.selisih)
     );
-    param.dataKecamatan.map(item =>
-        meninggal.push(item.meninggal)
+    param.map(item =>
+        presentase.push(item.presentase)
     );
 
-    for (let index = 0; index < konfirmasi.length; index++) {
-        totalKonfirmasi += parseInt(konfirmasi[index]);
-        totalAktif += parseInt(aktif[index]);
-        totalSembuh += parseInt(sembuh[index]);
-        totalMeninggal += parseInt(meninggal[index]);
+    for (let index = 0; index < anggaran.length; index++) {
+        totalAnggaran += parseInt(anggaran[index]);
+        totalRealisasi += parseInt(realisasi[index]);
+        totalSelisih += parseInt(selisih[index]);
+        totalPresentase += parseInt(presentase[index]);
     }
 
-    return [totalKonfirmasi, totalAktif, totalSembuh, totalMeninggal];
+    totalPresentase = totalPresentase / anggaran.length;
+
+    return [totalAnggaran, totalRealisasi, totalSelisih, totalPresentase];
 }

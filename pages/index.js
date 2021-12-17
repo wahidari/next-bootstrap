@@ -25,6 +25,7 @@ import "swiper/css/autoplay";
 // Animate On Scroll
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { webName } from "../siteIdentity";
 
 // install Swiper modules
 // SwiperCore.use([Autoplay]);
@@ -122,7 +123,7 @@ export default function Home({ posts, agendas, videos, photos }) {
                             </div>
                             <div className="col-md-7" data-aos="fade-up" data-aos-duration="1500">
                                 <div className="text-center text-md-start mt-3 mt-md-0">
-                                    <h3>Welcome To Our Web</h3>
+                                    <h3>Welcome To Our Web {webName}</h3>
                                     <p className="text-dark-secondary" id="scroll-to-statistic">
                                         Qui aliqua nostrud esse aliqua amet. Aute Lorem et aliquip Lorem consectetur consectetur non eiusmod voluptate nostrud sint Lorem laboris. Laborum eiusmod commodo nulla sunt elit Lorem et dolore aliquip exercitation.
                                     </p>

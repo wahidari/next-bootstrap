@@ -1,44 +1,44 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+// Nextjs API route support: https://nextjsorg/docs/api-routes/introduction
 const danadesa = {
     "pendapatan": [
         {
             "nama": "Dana Desa",
-            "anggaran": "10.500.000",
-            "realisasi": "10.000.000",
-            "selisih": "500.000",
-            "presentase": "54.0"
+            "anggaran": "10500000",
+            "realisasi": "10000000",
+            "selisih": "500000",
+            "presentase": "54"
         }
     ],
     "belanja": [
         {
             "nama": "Bidang Pelaksanaan Pembangunan Desa",
-            "anggaran": "1.100.000",
-            "realisasi": "1.000.000",
-            "selisih": "100.000",
-            "presentase": "50.0"
+            "anggaran": "1100000",
+            "realisasi": "1000000",
+            "selisih": "100000",
+            "presentase": "50"
         },
         {
             "nama": "Bidang Pemberdayaan Masyarakat",
-            "anggaran": "2.100.000",
-            "realisasi": "2.000.000",
-            "selisih": "100.000",
-            "presentase": "50.0"
+            "anggaran": "2100000",
+            "realisasi": "2000000",
+            "selisih": "100000",
+            "presentase": "50"
         },
         {
             "nama": "Bidang Penanggulangan Bencana Desa",
-            "anggaran": "3.100.000",
-            "realisasi": "3.000.000",
-            "selisih": "100.000",
-            "presentase": "50.0"
+            "anggaran": "3100000",
+            "realisasi": "3000000",
+            "selisih": "100000",
+            "presentase": "50"
         }
     ],
     "pembiayaan": [
         {
             "nama": "Pengeluaran Pembiayaan	",
-            "anggaran": "4.100.000",
-            "realisasi": "4.000.000",
-            "selisih": "100.000",
-            "presentase": "54.0"
+            "anggaran": "4100000",
+            "realisasi": "4000000",
+            "selisih": "100000",
+            "presentase": "54"
         }
     ],
 };

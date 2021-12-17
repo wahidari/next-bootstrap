@@ -17,7 +17,7 @@ export default function Breadcrumb({pageName, currentPage}) {
             `}</style>
 
             <div className="container py-3 d-flex justify-content-between align-items-center">
-                <h4 className="my-0 ms-1">{pageName}</h4>
+                <h4 className="my-0">{pageName}</h4>
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb me-2">
                         <li className="breadcrumb-item">

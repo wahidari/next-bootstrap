@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { FaWhatsapp } from "react-icons/fa"
 
-export default function PostCard({ id, slug, name, category, price, image, phone, seller, description }) {
+export default function ProductCard({ id, slug, name, category, price, image, phone, seller, description }) {
 
     return (
         <>
@@ -25,7 +25,7 @@ export default function PostCard({ id, slug, name, category, price, image, phone
                     <p className="mb-0 text-14 text-secondary small">{description}</p>
                 </div>
                 <div className="card-footer">
-                    <a href={`https://api.whatsapp.com/send?phone=${phone}`} className="text-decoration-none"><i className="me-2"><FaWhatsapp /></i>Pesan via Whatsapp</a>
+                    <a href={`https://wa.me/${phone}?text=Saya%20ingin%20memesan%20${name}`} className="text-decoration-none" rel="noreferrer" target="_blank"><i className="me-2"><FaWhatsapp /></i>Pesan via Whatsapp</a>
                 </div>
             </div>
         </>
