@@ -10,6 +10,8 @@ import PostCard from "../components/PostCard";
 import AgendaCard from '../components/AgendaCard';
 import VideoCard from '../components/VideoCard';
 import BackToTop from "../components/BackToTop";
+import StatisticLink from "../components/StatisticLink";
+import SistemDesa from "../components/SistemDesa";
 import imageLogo from "../public/logo.png";
 import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
@@ -25,7 +27,7 @@ import "swiper/css/autoplay";
 // Animate On Scroll
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { webName } from "../siteIdentity";
+import { webName, namaDesa, namaKecamatan } from "../siteIdentity";
 
 // install Swiper modules
 // SwiperCore.use([Autoplay]);
@@ -36,7 +38,9 @@ const title = "Home";
 export default function Home({ posts, agendas, videos, photos }) {
 
     useEffect(() => {
-        AOS.init();
+        AOS.init({
+            once: true,
+        });
     });
 
     // Take only 3 item as featured
@@ -91,6 +95,7 @@ export default function Home({ posts, agendas, videos, photos }) {
         <>
             <style jsx>
                 {`
+                
             `}
             </style>
 
@@ -112,7 +117,6 @@ export default function Home({ posts, agendas, videos, photos }) {
 
                 <CarouselHome />
 
-                {/* <!-- Start Welcome  --> */}
                 <section className="py-5">
                     <div className="container">
                         <div className="row align-items-center justify-content-between">
@@ -125,7 +129,7 @@ export default function Home({ posts, agendas, videos, photos }) {
                                 <div className="text-center text-md-start mt-3 mt-md-0">
                                     <h3>Welcome To Our Web {webName}</h3>
                                     <p className="text-dark-secondary" id="scroll-to-statistic">
-                                        Qui aliqua nostrud esse aliqua amet. Aute Lorem et aliquip Lorem consectetur consectetur non eiusmod voluptate nostrud sint Lorem laboris. Laborum eiusmod commodo nulla sunt elit Lorem et dolore aliquip exercitation.
+                                        Website Resmi Desa {namaDesa}, Kec. {namaKecamatan}, Kabupaten Bangkalan, Jawa Timur. Media komunikasi dan transparansi Pemerintah Desa untuk seluruh masyarakat di Indonesia
                                     </p>
                                     <a href="#scroll-to" className="btn btn-primary shadow rounded px-3 scroll-to">See More <i className="ms-2"><FaArrowDown /></i>
                                     </a>
@@ -134,7 +138,8 @@ export default function Home({ posts, agendas, videos, photos }) {
                         </div>
                     </div>
                 </section>
-                {/* <!-- End Welcome  --> */}
+
+                <StatisticLink />
 
                 <div className="container my-5 py-4" id="scroll-to">
                     <div className="d-flex align-items-center justify-content-between mb-4">
@@ -355,6 +360,8 @@ export default function Home({ posts, agendas, videos, photos }) {
                         </ModalGateway>
                     </div>
                 </div>
+
+                <SistemDesa />
 
             </main>
 

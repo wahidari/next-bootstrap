@@ -1,4 +1,5 @@
-import Image from "next/image"
+import Image from "next/image";
+import { namaDesa } from "../siteIdentity";
 
 export default function CarouselHome() {
 
@@ -31,8 +32,8 @@ export default function CarouselHome() {
                         />
                         <div className="carousel-overlay"></div>
                         <div className="carousel-caption">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                            <h3>Selamat Datang di Web Desa {namaDesa}</h3>
+                            <p>Pusat Layanan Informasi Resmi Desa</p>
                         </div>
                     </div>
                     <div className="carousel-item">
@@ -45,8 +46,8 @@ export default function CarouselHome() {
                         />
                         <div className="carousel-overlay"></div>
                         <div className="carousel-caption">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                            <h3>Desa Rukun & Gotong Royong</h3>
+                            <p>Website Desa Kreatif, Asri, Damai dan Bahagia</p>
                         </div>
                     </div>
                 </div>

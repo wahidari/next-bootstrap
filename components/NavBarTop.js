@@ -106,6 +106,11 @@ export default function NavBarTop() {
                                         </ActiveLink>
                                     </li>
                                     <li>
+                                        <ActiveLink activeClassName="active" href="/visimisi">
+                                            <a className="nav-link ms-3 ms-md-2">Visi Misi</a>
+                                        </ActiveLink>
+                                    </li>
+                                    <li>
                                         <ActiveLink activeClassName="active" href="/struktur">
                                             <a className="nav-link ms-3 ms-md-2">Struktur</a>
                                         </ActiveLink>
