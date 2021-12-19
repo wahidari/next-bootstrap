@@ -27,7 +27,7 @@ import "swiper/css/autoplay";
 // Animate On Scroll
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { webName, namaDesa, namaKecamatan } from "../siteIdentity";
+// import { webName, namaDesa, namaKecamatan } from "../siteIdentity";
 
 // install Swiper modules
 // SwiperCore.use([Autoplay]);
@@ -35,13 +35,24 @@ SwiperCore.use([Autoplay, Pagination]);
 
 const title = "Home";
 
-export default function Home({ posts, agendas, videos, photos }) {
-
+export default function Home({ posts, agendas, videos, photos, identity }) {
+    // console.log("homepage ", identity)
+    let [namaDesa, setNamaDesa] = useState("Alang Alang");
+    let [namaKecamatan, setNamaKecamatan] = useState("Tragah");
+    // let namaDesa = "", namaKecamatan ="";
     useEffect(() => {
         AOS.init({
             once: true,
         });
+        namaDesa = localStorage.getItem("namaDesa");
+        setNamaDesa(namaDesa)
+        namaKecamatan = localStorage.getItem("namaKecamatan");
+        setNamaKecamatan(namaKecamatan)
+        // namaKecamatan = localStorage.getItem("namaKecamatan");
     });
+    // namaDesa = localStorage.getItem("namaDesa");
+    console.log("lala", namaDesa);
+
 
     // Take only 3 item as featured
     const featuredPost = posts.slice(0, 3);
@@ -127,9 +138,9 @@ export default function Home({ posts, agendas, videos, photos }) {
                             </div>
                             <div className="col-md-7" data-aos="fade-up" data-aos-duration="1500">
                                 <div className="text-center text-md-start mt-3 mt-md-0">
-                                    <h3>Welcome To Our Web {webName}</h3>
+                                    <h3>Welcome To Our Web {namaDesa ? namaDesa : "Alang Alang" }</h3>
                                     <p className="text-dark-secondary" id="scroll-to-statistic">
-                                        Website Resmi Desa {namaDesa}, Kec. {namaKecamatan}, Kabupaten Bangkalan, Jawa Timur. Media komunikasi dan transparansi Pemerintah Desa untuk seluruh masyarakat di Indonesia
+                                        Website Resmi Desa {namaDesa ? namaDesa : "Alang Alang"}, Kec. {namaKecamatan ? namaKecamatan : "Tragah"}, Kabupaten Bangkalan, Jawa Timur. Media komunikasi dan transparansi Pemerintah Desa untuk seluruh masyarakat di Indonesia
                                     </p>
                                     <a href="#scroll-to" className="btn btn-primary shadow rounded px-3 scroll-to">See More <i className="ms-2"><FaArrowDown /></i>
                                     </a>
@@ -382,8 +393,10 @@ export async function getServerSideProps() {
     const videos = await getAllVideo.json();
     const getAllPhotos = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/photo`);
     const photos = await getAllPhotos.json();
+    const getSiteIdentity = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/identity`);
+    const identity = await getSiteIdentity.json();
     return {
         // will be passed to the page component as props
-        props: { posts, agendas, videos, photos },
+        props: { posts, agendas, videos, photos, identity },
     };
 };
